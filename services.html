@@ -20,6 +20,28 @@
 html, body {
   margin: 0;padding: 0;background-color: #ccc;
 }
+
+body {
+  background-image: url(https://images.unsplash.com/photo-1462524500090-89443873e2b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60);
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-attachment: fixed;
+
+}
+
+#whiteOutTop {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  height: 12vh;
+  z-index: 0;
+  left: 0;
+  background-color: #fff;
+
+}
 .grid1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
@@ -149,7 +171,7 @@ a:hover {
 }
 
 p {
-  font-size: 14px;
+  font-size: 22px;
 }
 
 .shell-mainnav {
@@ -616,7 +638,13 @@ p {
       word-spacing: 800px;
       width: 100%;
     }
+@media (max-width: 500px){
 
+    .navbar .show {
+    left: auto;
+    right: -50vw !important;
+  }
+}
 
 @media (min-width: 500px){
   .people{
@@ -654,8 +682,43 @@ p {
       margin-right: 60px;
     }
 
+
+
     
 }
+
+
+@media (min-width: 501px){
+
+    .navbar .show {
+    left: auto;
+    right: -16vw !important;
+  }
+}
+@media (min-width: 600px){
+
+    .navbar .show {
+    left: auto;
+    right: -32vw !important;
+  }
+}
+
+@media (min-width: 769px){
+
+    .navbar .show {
+    left: auto;
+    right: -16vw !important;
+  }
+}
+
+@media (min-width: 1000px){
+
+    .navbar .show {
+    left: auto;
+    right: 1vw !important;
+  }
+}
+
 
 
     .meta p {
@@ -688,12 +751,16 @@ p {
       font-size: 3rem;
     }
 
+    
 
+
+
+    }
 
   </style>
   <body>
 
-
+<div id="whiteOutTop"></div>
 <div id="shell-layout">
   <nav id="shell-topnav" class="navbar navbar-expand navbar-light shell-mainnav">
     <span class="d-inline d-md-none" data-toggle="flyout">
@@ -714,83 +781,43 @@ p {
           <div class="dropdown-menu extended-drop" aria-labelledby="mailmenu">
             <a class="dropdown-item" href="#">
               <div class="media">
-                <img class="align-self-center mr-3" src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Generic placeholder image">
+                <img class="align-self-center mr-3" src="https://placehold.it/80x80.jpg" alt="Generic placeholder image">
                 <div class="media-body">
-                  <h6>Winifred Powell</h6>
-                  <span class="badge badge-danger">new message</span>
+                  <h6>First Time Treatment!</h6>
+                  <span class="badge badge-success">$20 off</span>
                   <p class="small text-muted">
-                    <i class="far fa-clock"></i>Yesterday at 4:22 pm</p>
-                  <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ...</p>
+                    <i class="far fa-clock"></i>Available for first time visit</p>
+                  <p>Come enjoy a relaxing session with Inner G. <br><span style="color: #4fe970;">Learn More >></span></p>
                 </div>
               </div>
             </a>
             <a class="dropdown-item" href="#">
               <div class="media">
-                <img class="align-self-center mr-3" src="https://images.pexels.com/photos/839633/pexels-photo-839633.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Generic placeholder image">
+                <img class="align-self-center mr-3" src="https://placehold.it/80x80.jpg" alt="Generic placeholder image">
                 <div class="media-body">
-                  <h6>Christopher Medina</h6>
+                  <h6>Therapist's Treat</h6>
                   <p class="small text-muted">
-                    <i class="far fa-clock"></i>Yesterday at 4:22 pm</p>
-                  <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ...</p>
+                    <i class="far fa-clock"></i>Trade Select Services</p>
+                  <p>Your skill, or hobby might just benefit you more than you think. Find out if this program benefits you. <br><span style="color: #4fe970;">Learn More >></span></p>
                 </div>
               </div>
             </a>
             <a class="dropdown-item" href="#">
               <div class="media">
-                <img class="align-self-center mr-3" src="https://images.pexels.com/photos/542282/pexels-photo-542282.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Generic placeholder image">
+                <img class="align-self-center mr-3" src="https://placehold.it/80x80.jpg" alt="Generic placeholder image">
                 <div class="media-body">
-                  <h6>Sabrina Gonzalez</h6>
+                  <h6>Book A Session!</h6>
                   <p class="small text-muted">
-                    <i class="far fa-clock"></i>Yesterday at 4:22 pm</p>
-                  <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ...</p>
+                    <i class="far fa-clock"></i>View Our Available Services</p>
+                  <p>Inner G: Restorative & Holistic Care is a supportive community dedicated to encourage
+              personal development and enhance quality of life through comprehensive services that meets your physical,
+              spiritual and emotional needs.
+              <br><span style="color: #4fe970;">View Services >></span></p>
                 </div>
               </div>
             </a>
-            <a class="dropdown-item" href="#">
-              <div class="media">
-                <img class="align-self-center mr-3" src="https://images.pexels.com/photos/756453/pexels-photo-756453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Generic placeholder image">
-                <div class="media-body">
-                  <h6>Nora Bishop</h6>
-                  <p class="small text-muted">
-                    <i class="far fa-clock"></i>Yesterday at 4:22 pm</p>
-                  <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ...</p>
-                </div>
-              </div>
-            </a>
-            <a class="dropdown-item" href="#">
-              <div class="media">
-                <img class="align-self-center mr-3" src="https://images.pexels.com/photos/1065084/pexels-photo-1065084.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Generic placeholder image">
-                <div class="media-body">
-                  <h6>Carmen Sullivan</h6>
-                  <p class="small text-muted">
-                    <i class="far fa-clock"></i>Yesterday at 4:22 pm</p>
-                  <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ...</p>
-                </div>
-              </div>
-            </a>
-            <a class="dropdown-item" href="#">
-              <div class="media">
-                <img class="align-self-center mr-3" src="https://images.pexels.com/photos/935969/pexels-photo-935969.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Generic placeholder image">
-                <div class="media-body">
-                  <h6>Hazel Garner</h6>
-                  <p class="small text-muted">
-                    <i class="far fa-clock"></i>Yesterday at 4:22 pm</p>
-                  <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ...</p>
-                </div>
-              </div>
-            </a>
-            <a class="dropdown-item" href="#">
-              <div class="media">
-                <img class="align-self-center mr-3" src="https://images.pexels.com/photos/734483/pexels-photo-734483.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Generic placeholder image">
-                <div class="media-body">
-                  <h6>Sarah Cooper</h6>
-                  <p class="small text-muted">
-                    <i class="far fa-clock"></i>Yesterday at 4:22 pm</p>
-                  <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ...</p>
-                </div>
-              </div>
-            </a>
-          </div>
+           
+          </div><!--/-->
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="alertmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -827,15 +854,15 @@ p {
         </li>
         <li class="nav-item dropdown d-none d-md-block">
           <a class="nav-link dropdown-toggle d-inline-block" href="#" id="usermenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="https://lh3.googleusercontent.com/JCoqjcD674jyMzvIFHPcz24H-wct8Lg41OfNrvJ_hb1pY5QA0cNROdrCIZLvN5hIwzJ4gwhVto5OR5UCPJCVNOVNVb0=s192"
+                            <img src="https://www.toptal.com/designers/subtlepatterns/patterns/memphis-mini.png"
                                 height="50" class="shell-avatar-small" />
                         </a>
           <div class="dropdown-menu" aria-labelledby="usermenu">
-            <a class="dropdown-item" href="#">Profile</a>
-            <a class="dropdown-item" href="#">Inbox</a>
+            <a class="dropdown-item" href="#">Schedule Appointment</a>
+           <!--  <a class="dropdown-item" href="#">Inbox</a>
             <a class="dropdown-item" href="#">Settings</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Logout</a>
+            <a class="dropdown-item" href="#">Logout</a> -->
           </div>
         </li>
       </ul>
@@ -934,21 +961,21 @@ p {
       </div>
     </div>
   </nav>
-  <section id="shell-mainbody" style="min-height: 100vh;">
+  <section id="shell-mainbody" style="min-height: 100vh;background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/swirl.png');background-repeat: repeat;background-position: 0 center;">
     <h1>Services</h1>
-    <p>  <b>Our mission</b></span> is to provide an exceptional service that exceeds your expectations./p>
+    <p>  <b>Our mission</b></span> is to provide an exceptional service that exceeds your expectations.</p>
             <p class="text" style="padding: 2em;">Inner G: Restorative & Holistic Care is a supportive community dedicated to encourage
               personal development and enhance quality of life through comprehensive services that meets your physical,
               spiritual and emotional needs.</p>
     <div class="d-flex  flex-wrap flex-md-nowrap justify-content-center">
       <div>
-        <img src="http://via.placeholder.com/300x200" style="padding:10px; width:100%;" />
+        <img src="https://dl3.pushbulletusercontent.com/nBv5kkbko7aWmQUWv7HoBLvu1WNagQFm/Inner%20G--License.jpg" style="padding:10px; width:100%;" />
       </div>
       <div>
-        <img src="http://via.placeholder.com/300x200" style="padding:10px; width:100%;" />
+        <img src="https://dl3.pushbulletusercontent.com/qMuNvX1gl5iTayTHUSF8MVpyY0PCrbSc/Inner%20G--Certificate.jpg" style="padding:10px; width:100%;" />
       </div>
       <div>
-        <img src="http://via.placeholder.com/300x200" style="padding:10px; width:100%;" />
+        <img src="https://dl3.pushbulletusercontent.com/PoZXNdyTWA86GX4wFeD7mU9YsunAVxpu/Inner%20G%20--%20Massage.jpg" style="padding:10px; width:100%;" />
       </div>
     </div>
   </section>
@@ -958,6 +985,7 @@ p {
   </footer>
 </div>
 
+     
 
 
 
@@ -1057,6 +1085,39 @@ p {
               </div>
             </div>
           </section>
+            <section>
+
+                 
+                 <div style="width:100%"><div style="width:25%; margin:0px; display: inline-block">
+              <a href="/pages/-leafs">
+              <video class="Leafs_rolloverVid" playsinline="" loop="" muted="" poster="https://dl3.pushbulletusercontent.com/gHrlVL3m2NiiGCUyC624GjKsqciUbpEz/THERApistsreat33.jpg" style="width:100%; border: 1px solid white; object-fit: cover;">
+                <source src="https://dl3.pushbulletusercontent.com/gHrlVL3m2NiiGCUyC624GjKsqciUbpEz/THERApistsreat33.jpg" type="video/mp4">
+              </video>
+              </a> 
+              </div><div style="width:25%; margin:0px; display: inline-block">
+              <a href="/pages/-raptors">
+              <video class="Raptors_rolloverVid" playsinline="" loop="" muted="" poster="https://dl3.pushbulletusercontent.com/eoUo05d9MuEGDWm1at4Zdeu6DUPNkzda/AROma3.jpg" style="width:100%; border: 1px solid white; object-fit: cover;">
+                <source src="https://dl3.pushbulletusercontent.com/eoUo05d9MuEGDWm1at4Zdeu6DUPNkzda/AROma3.jpg" type="video/mp4">
+              </video>
+              </a>
+              </div><div style="width:25%; margin:0px; display: inline-block">
+              <a href="/pages/-fc"> 
+              <video class="TFC_rolloverVid" playsinline="" loop="" muted="" poster="https://dl3.pushbulletusercontent.com/GaJW7nlTEkxQCoGBpZrf1qWq8FqrLlNe/try3addition195.jpg" style="width:100%; border: 1px solid white; object-fit: cover;">
+                <source src="https://dl3.pushbulletusercontent.com/GaJW7nlTEkxQCoGBpZrf1qWq8FqrLlNe/try3addition195.jpg" type="video/mp4">
+              </video>
+              </a>
+              </div><div style="width:25%; margin:0px; display: inline-block">
+              <a href="/pages/toronto-">
+              <video class="Argos_rolloverVid" playsinline="" loop="" muted="" poster="https://dl3.pushbulletusercontent.com/ocCYnmZBR9Coima4H7KToTWyM5NufjYi/additionalGQ19.jpg" style="width:100%; border: 1px solid white;object-fit: cover;">
+                <source src="https://dl3.pushbulletusercontent.com/ocCYnmZBR9Coima4H7KToTWyM5NufjYi/additionalGQ19.jpg" type="video/mp4">
+              </video>
+              </a>
+              </div>
+            </div>
+
+
+                           <!--/--> 
+             </section>
   <!--primary-->
   <div class="grid1" >
    <div class="gridItems" id="gridArea1" >
