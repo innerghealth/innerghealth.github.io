@@ -17,10 +17,51 @@
   <title>Title</title>
 
   <style>
+  	/** { border: 1px dashed transparent }*/
+  	/** { border: 3px dashed blue }*/
+
+    html , body {
+    	padding:0;
+    	margin: 0;
+    }
+
+  	.overlay2 {
+	  position: absolute;
+	  height: 90vh;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  z-index: -1;
+  	  background-image: url('https://dl3.pushbulletusercontent.com/5wHu2udb2i2pBtO8plelBKsecGWJknVv/Website-Relaxing.jpg');
+  	  background-repeat: no-repeat;
+   	  background-position: center;
+  	  background-size: cover;
+  }
+
+  	.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 90vh;
+  background: linear-gradient(135deg, #fff 0%, #939 88%);
+  z-index: 0;
+  opacity: 0.68;
+
+}
+
+  	/** {
+  		border: 3px solid blue;
+  	}*/
 .gridArea1 {
+	padding: 0;
 	display: grid;
 	grid-template-columns: repeat(auto-fit,minmax(100%,1fr));
 	grid-template-rows: minmax(100vh);
+	justify-items: center;
+	align-items: center ;
 
 
 }
@@ -28,48 +69,61 @@
 .gridItem {
 	width: 100%;
 	height: 90vh;
-	background-color: #ccc;
+	background-color: goldenrod;
 
 }
 
 .gridItem-A {
 	width: 100%;
 	height: 100%;
-	background-color: red;
+	background-color: transparent;
 	display: flex;
 }
 .gridItem-A:nth-child(odd) {
 	width: 100%;
 	height: 100%;
-	background-color: blue;
+	background-color: transparent;
 }
 .gridItem:nth-child(odd) {
-	background-color: goldenrod;
+	background-color: transparent;
 }
 .grid-A-1 {
+	z-index: 99;
 	display: grid;
-	grid-template-rows: 80px 1fr 1fr;
+	grid-template-rows: 80px 2.5fr 0.25fr;
 	grid-template-areas: 
 	'logo header header header '
 	'ouch ouch ouch   ouch'
 	'do       oi   madmoola   tor';
 }
+
+.splashContent > h1 {
+	font-size: 2.75rem;
+}
+
+.splashContent > h4 {
+	font-size: 1.5rem;
+}
+
+.splashContent > p {
+	font-size: 1.25rem;
+}
 </style>
 </head>
 <body>
   <div class="gridArea1">
-  	<div class="gridItem grid-A-1">
-  		<div class="gridItem-A" style="grid-area: logo;background-color: pink;justify-content: center;align-items: center;">
+  	<div class="gridItem grid-A-1" style="">
+  		<div class="gridItem-A" style="grid-area: logo;background-color: transparent;justify-content: center;align-items: center;">
   			<img src="https://dl2.pushbulletusercontent.com/dHDRyZ9IKDDGelzEpCa9PIgASED0pndb/Inner%20G%20logo1v2.jpeg" alt="" style="height: 100%;width: 7rem;border-radius: 50%;transform: scale(1.4);margin-top: 3rem;">
 
   		</div>
-  		<div class="gridItem-A" style="grid-area: header;background-color: red;">1a</div>
-  		<div class="gridItem-A" style="background-color: orange;grid-area: madmoola;">2a</div>
+  		<div class="gridItem-A" style="grid-area: header;background-color: transparent;">1a</div>
+  		<div class="gridItem-A" style="background-color: transparent;grid-area: madmoola;">2a</div>
   		<!-- <div class="gridItem-A" style="grid-area:header;">3</div>
   		<div class="gridItem-A" style="grid-area:header;">4</div> -->
   	
-  		<div class="gridItem-A" style="grid-area:ouch;background-color: yellow;/*justify-content: center;*/align-items: center;">
-  			<div class="house" style="display: block;margin-left: 0;padding:0 2.5rem;">
+  		<div class="gridItem-A" style="grid-area:ouch;background-color: transparent;/*justify-content: center;*/align-items: center;">
+  			<div class="splashContent" style="display: block;margin-left: 0;padding:0 2.5rem;/*border: 3px solid black;*/height: 32vh;color: #fff;">
   				<h1>macho</h1>
   			<h4>Our mission is to provide an exceptional service that exceeds your expectations.</h4>
   			<p>i wanna be a macho man</p>
@@ -77,9 +131,9 @@
   			
   		</div>
   		
-  		<div class="gridItem-A" style="grid-area:do;background-color: green;">4a</div>
-  		<div class="gridItem-A" style="grid-area:oi;background-color: blue">5a</div>
-  		<div class="gridItem-A" style="grid-area:tor;background-color: purple;">6a</div>
+  		<div class="gridItem-A" style="grid-area:do;background-color: transparent;">4a</div>
+  		<div class="gridItem-A" style="grid-area:oi;background-color: transparent;">5a</div>
+  		<div class="gridItem-A" style="grid-area:tor;background-color: transparent;">6a</div>
 
   		
   		
@@ -93,7 +147,8 @@
   	<div class="gridItem">8</div>
   </div>
 
-
+<div class="overlay"></div>
+<div class="overlay2"></div>
 
   <script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 
