@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Overlock+SC|Overlock:400,700|Satisfy" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+
+
+
+
+  <title>Title</title>
+
+  <style>
+.gridArea1 {
+	display: grid;
+	grid-template-columns: repeat(auto-fit,minmax(100%,1fr));
+	grid-template-rows: minmax(100vh);
+
+
+}
+
+.gridItem {
+	width: 100%;
+	height: 90vh;
+	background-color: #ccc;
+
+}
+
+.gridItem-A {
+	width: 100%;
+	height: 100%;
+	background-color: red;
+	display: flex;
+}
+.gridItem-A:nth-child(odd) {
+	width: 100%;
+	height: 100%;
+	background-color: blue;
+}
+.gridItem:nth-child(odd) {
+	background-color: goldenrod;
+}
+.grid-A-1 {
+	display: grid;
+	grid-template-rows: 80px 1fr 1fr;
+	grid-template-areas: 
+	'logo header header header '
+	'ouch ouch ouch   ouch'
+	'do       oi   madmoola   tor';
+}
+</style>
+</head>
+<body>
+  <div class="gridArea1">
+  	<div class="gridItem grid-A-1">
+  		<div class="gridItem-A" style="grid-area: logo;background-color: pink;justify-content: center;align-items: center;">
+  			<img src="https://dl2.pushbulletusercontent.com/dHDRyZ9IKDDGelzEpCa9PIgASED0pndb/Inner%20G%20logo1v2.jpeg" alt="" style="height: 100%;width: 7rem;border-radius: 50%;transform: scale(1.4);margin-top: 3rem;">
+
+  		</div>
+  		<div class="gridItem-A" style="grid-area: header;background-color: red;">1a</div>
+  		<div class="gridItem-A" style="background-color: orange;grid-area: madmoola;">2a</div>
+  		<!-- <div class="gridItem-A" style="grid-area:header;">3</div>
+  		<div class="gridItem-A" style="grid-area:header;">4</div> -->
+  	
+  		<div class="gridItem-A" style="grid-area:ouch;background-color: yellow;/*justify-content: center;*/align-items: center;">
+  			<div class="house" style="display: block;margin-left: 0;padding:0 2.5rem;">
+  				<h1>macho</h1>
+  			<h4>Our mission is to provide an exceptional service that exceeds your expectations.</h4>
+  			<p>i wanna be a macho man</p>
+  			</div>
+  			
+  		</div>
+  		
+  		<div class="gridItem-A" style="grid-area:do;background-color: green;">4a</div>
+  		<div class="gridItem-A" style="grid-area:oi;background-color: blue">5a</div>
+  		<div class="gridItem-A" style="grid-area:tor;background-color: purple;">6a</div>
+
+  		
+  		
+  	</div>
+  	<div class="gridItem">2</div>
+  	<div class="gridItem">3</div>
+  	<div class="gridItem">4</div>
+  	<div class="gridItem">5</div>
+  	<div class="gridItem">6</div>
+  	<div class="gridItem">7</div>
+  	<div class="gridItem">8</div>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
+  <script src="https://use.fontawesome.com/2d1c7583b1.js"></script>
+
+ </body>
+
+</html>
