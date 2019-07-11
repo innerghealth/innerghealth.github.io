@@ -3055,7 +3055,12 @@ Our mission is to provide an exceptional service that exceeds your expectations.
         <form action="have-your-say" method="post" id="survey">
 
     <div>
-        <input type="hidden" id="surveyCategory" name='surveyCategory' value="o18">
+        <input type="hidden" id="surveyCategory" name='surveyCategory' value="o18" style="color: #000;">
+
+        <div class="question important text" id="cellPhone">
+            <label for="enq_cellPhone" class="qhead"></label>
+            <input type="text" value="" name="enq_cellPhone" id="enq_cellPhone" placeholder="Your Cell Number" style="color: #000;">
+        </div>
 
         <div class="question pickone" id="haveChildren">
             <label for="enq_haveChildren" class="qhead">DO YOU HAVE CHILDREN?</label>
@@ -3071,45 +3076,18 @@ Our mission is to provide an exceptional service that exceeds your expectations.
         </select>
         </div>
 
-        <div class="question multicheck" data-failThreshold="15" id="shopCheck">
-            <span class="qhead">WHERE DO YOU NORMALLY LIKE TO SHOP FOR YOUR KIDS?</span>
-            <input type="checkbox" value="1" name="enq_Factorie" id="Factorie"><label for="Factorie">Factorie</label>
-            <input type="checkbox" value="1" name="enq_CottonOn" id="CottonOn"><label for="CottonOn">Cotton On</label>
-            <input type="checkbox" value="1" name="enq_MrPrice" id="MrPrice"><label for="MrPrice">Mr Price</label>
-            <input type="checkbox" value="1" name="enq_WOOLWORTHS" id="WOOLWORTHS"><label for="WOOLWORTHS">WOOLWORTHS</label>
-            <input type="checkbox" value="1" name="enq_EDGARS" id="EDGARS"><label for="EDGARS">EDGARS</label>
-            <input type="checkbox" value="1" name="enq_ACKERMANS" id="ACKERMANS"><label for="ACKERMANS">ACKERMANS</label>
-            <input type="checkbox" value="1" name="enq_TOPSHOP" id="TOPSHOP"><label for="TOPSHOP">TOPSHOP</label>
-            <input type="checkbox" value="1" name="enq_LEGIT" id="LEGIT"><label for="LEGIT">LEGIT</label>
-            <input type="checkbox" value="1" name="enq_ZARA" id="ZARA"><label for="ZARA">ZARA</label>
-            <input type="checkbox" value="1" name="enq_JAM" id="JAM"><label for="JAM">JAM</label>
-            <input type="checkbox" value="1" name="enq_VANS" id="VANS"><label for="VANS">VANS</label>
-            <input type="checkbox" value="1" name="enq_SPORTSCENE" id="SPORTSCENE"><label for="SPORTSCENE">SPORTSCENE</label>
-            <input type="checkbox" value="1" name="enq_TEKKIETOWN" id="TEKKIETOWN"><label for="TEKKIETOWN">TEKKIE TOWN</label>
-            <input type="checkbox" value="1" name="enq_FASHIONEXPRESS" id="FASHIONEXPRESS"><label for="FASHIONEXPRESS">FASHIONEXPRESS</label>
-            <input type="checkbox" value="1" name="enq_OTHER" id="OTHER"><label for="OTHER">OTHER</label>
+         <div class="question important text email" id="email">
+            <label for="enq_email" class="qhead"></label>
+            <input type="text" value="" name="enq_email" id="enq_email" placeholder="Your Email" style="color: #000;">
         </div>
 
-        <div class="question pickone" id="shopOnline">
-            <label for="enq_shopOnline" class="qhead">DO YOU EVER SHOP ONLINE FOR KIDS?</label>
-            <select id="enq_shopOnline" name="enq_shopOnline">
-            <option value="-">PICK ONE</option>
-            <option>YES</option>
-            <option>NO</option>
-        </select>
-        </div>
+    </div>
+    <input type="hidden" name="enq_age" value="20">
+    <input type="hidden" name="enq_gender" value="Male">
+    <textarea name="enq_comments" id="comments"></textarea>
 
-        <div class="question pickone" id="howOften">
-            <label for="enq_howOften" class="qhead">HOW OFTEN DO YOU SHOP FOR CLOTHING FOR YOUR KIDS?</label>
-            <select id="enq_howOften" name="enq_howOften">
-            <option value="-">PICK ONE</option>
-            <option>TWICE A WEEK</option>
-            <option>ONCE A WEEK</option>
-            <option>ONCE EVERY 2 WEEKS</option>
-            <option>EVERY 2 - 5 MONTHS</option>
-            <option>EVERY 6 - 12 MONTHS</option>
-        </select>
-        </div>
+      
+
 
         <div class="question pickone" id="pocketMoney">
             <label for="enq_pocketMoney" class="qhead">HOW MUCH POCKET MONEY DOES YOUR KIDS GET?</label>
@@ -3201,47 +3179,13 @@ Our mission is to provide an exceptional service that exceeds your expectations.
         </select>
         </div>
 
-        <div class="question pickone" id="visitWebsite">
-            <label for="enq_visitWebsite" class="qhead">HOW OFTEN DO YOU VISIT THE SODA BLOC WEBSITE?</label>
-            <select id="enq_visitWebsite" name="enq_visitWebsite">
-            <option value="-">PICK ONE</option>
-            <option>EVERY DAY</option>
-            <option>ONCE A WEEK</option>
-            <option>TWICE A WEEK</option>
-            <option>ONCE EVERY 2 WEEKS</option>
-            <option>ONCE A MONTH</option>
-            <option>ONCE EVERY 2</option>
-        </select>
-        </div>
+ 
 
-        <div class="question pickone" id="useWishlist">
-            <label for="enq_useWishlist" class="qhead">WOULD YOU ENCOURAGE YOUR CHILD TO USE A ‘WISHLIST’ FEATURE ON OUR WEBSITE IF IT ALLOWED THEM TO ‘HEART’ ALL THIER FAVOURITE ITEMS AND SHARE IT WITH YOU?</label>
-            <select id="enq_useWishlist" name="enq_useWishlist">
-            <option value="-">PICK ONE</option>
-            <option value="Yes">YES - THEN I WOULD KNOW EXACTLY WHAT TO BUY THEM</option>
-            <option value="No">NO - I KNOW WHAT THEY LIKE ALREADY</option>
-        </select>
-        </div>
+       
+       
+        
 
-        <div class="question important text" id="whereStore">
-            <label for="enq_whereStore" class="qhead">IF THERE ISN’T A SODA BLOC IN YOUR AREA ALREADY, WHICH MALL WOULD YOU LIKE TO SEE A SODA BLOC STORE?</label>
-            <input type="text" value="" name="enq_whereStore" id="enq_whereStore" placeholder="Please fill in">
-        </div>
-
-        <div class="question important text" id="cellPhone">
-            <label for="enq_cellPhone" class="qhead">Your Cell Number</label>
-            <input type="text" value="" name="enq_cellPhone" id="enq_cellPhone" placeholder="Please fill in">
-        </div>
-
-        <div class="question important text email" id="email">
-            <label for="enq_email" class="qhead">Your Email</label>
-            <input type="text" value="" name="enq_email" id="enq_email" placeholder="Please fill in">
-        </div>
-
-    </div>
-    <input type="hidden" name="enq_age" value="20">
-    <input type="hidden" name="enq_gender" value="Male">
-    <textarea name="enq_comments" id="comments"></textarea>
+       
 
     <a type="submit" id="submitSurvey" href="javascript:;" class="submitter">Submit</a>
 
@@ -3405,11 +3349,9 @@ We provide a combination of techniques and apply our new skills and tools to enh
 
 
   <div class="content">
-    <h1><span class="hp-subheader" style="font-family: 'Rokkitt', serif; '">Feeding Homeless Felines Foundation</h1>
+    <h1><span class="hp-subheader" style="font-family: 'Rokkitt', serif; '">Inner G Health</h1>
     <p>
-A 501(c)(3) nonprofit charitable organization-Miami-Dade County Florida
-Location- Feeding Homeless Felines Foundation, Inc.
-- C/O Myles Tobin- 2263 sw. 37th Ave.- Apt. 327 - Miami, FL 33145 Call 312-485-8557
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi officiis, dicta fugit vitae sint blanditiis!
  </p>
 
   </div>
@@ -3752,7 +3694,7 @@ Location- Feeding Homeless Felines Foundation, Inc.
 
   <div class="container">
     <div class="col-md-6 col-md-offset-3 text-center">
-      <h2 class="title">Learn a little more <br class="hidden-xs"/>about who we are &amp; what we can do together.</h2>
+      <h2 class="title" style="text-align: center;margin-top: -3.2%;">Learn a little more <br class="hidden-xs"/>about who we are &amp; what we can do together.</h2>
     </div>
     <div class="clearfix"></div>
     <div class="split flex p0 advertiser">
@@ -3760,9 +3702,9 @@ Location- Feeding Homeless Felines Foundation, Inc.
         <img src="https://dl3.pushbulletusercontent.com/l4W2BnHePeryDTpfMdS1Oe70hBEMGcsx/loganbgwebfhff11.jpg" class="img animated" />
       </div>
       <div class="content">
-        <h2>T.N.R &amp; Feeding</h2>
-        <p>Learn How to Help</p>
-        <a class="btn btn-md tealbg" href="https://members.cj.com/member/advertiser/account/settings.cj" target="_blank"><span>See work examples</span></a><a class="btn btn-md teal-outline" href=" http://www.loga.com/advertiser-requirements" target="_blank"><span>Contact Logan</span></a>
+        <h2>Exmple1</h2>
+        <p>Learn How to</p>
+        <a class="btn btn-md tealbg" href="https://members.gqbae.com/member/advertiser/account/settings.gqbae" target="_blank"><span>Learn More</span></a><a class="btn btn-md teal-outline" href=" http://www.loga.com/advertiser-requirements" target="_blank"><span>Contact Us</span></a>
 
       </div>
     </div>
@@ -3771,9 +3713,9 @@ Location- Feeding Homeless Felines Foundation, Inc.
         <img src="https://dl3.pushbulletusercontent.com/XAd6XTxTIuqgWp1qh9ecfrj4sREFmz4a/newbgWeblogan22.jpg" class="img animated" />
       </div>
       <div class="content">
-        <h2>Donate</h2>
-        <p>See where we are allocating the resources and our plan to help keep these animals safe and out of dangerous conditions.</p>
-        <a class="btn btn-md bluebg" href="https://members.cj.com/member/publisher/advertisers/findAdvertisers.cj" target="_blank"><span>Log In</span></a><a class="btn btn-md blue-outline" href="https://signup.cj.com/member/signup/publisher.cj" target="_blank"><span>Sign Up</span></a>
+        <h2>Schedule</h2>
+        <p>See our full availability and schedule.</p>
+        <a class="btn btn-md bluebg" href="https://members.gqbae.com/member/publisher/advertisers/findAdvertisers.gqbae" target="_blank"><span>me In</span></a><a class="btn btn-md blue-outline" href="https://signup.gqbae.com/member/signup/publisher.gqbae" target="_blank"><span>me Up</span></a>
       </div>
     </div>
   </div>
@@ -3782,21 +3724,21 @@ Location- Feeding Homeless Felines Foundation, Inc.
 
 <footer class="flex">
   <div class="social ">
-    <a href="http://facebook.cj.com" target="_blank" class="facebook-bg">
+    <a href="http://facebook.gqbae.com" target="_blank" class="facebook-bg">
       <p>Facebook</p>
       <span class="icon icon-social-facebook"></span></a>
-    <a href="http://twitter.cj.com" target="_blank" class="twitter-bg">
+    <a href="http://twitter.gqbae.com" target="_blank" class="twitter-bg">
       <p>Twitter</p>
       <span class="icon icon-social-twitter"></span></a>
-    <a href="http://linkedin.cj.com" target="_blank" class="linkedin-bg">
+    <a href="http://linkedin.gqbae.com" target="_blank" class="linkedin-bg">
       <p>LinkedIn</p>
       <span class="icon icon-social-linkedin"></span></a>
-    <a href="http://youtube.cj.com" target="_blank" class="youtube-bg">
+    <a href="http://youtube.gqbae.com" target="_blank" class="youtube-bg">
       <p>YouTube</p>
       <span class="icon icon-social-youtube"></span></a>
   </div>
   <div class="text-center  footer-logo">
-    <a href="http://"> <img src="https://lh3.googleusercontent.com/6927xEyfw74CoOeXTq_36ZgKLMmo2OLdXmrmVnpu0JTWnj9148KNiV-XTEBQECyV4ifNlw1y7njdXIIXtSk6S0hJzl4=s192" style="max-width:210px;" /></a>
+    <a href="http://"> <img src=" https://dl2.pushbulletusercontent.com/dHDRyZ9IKDDGelzEpCa9PIgASED0pndb/Inner%20G%20logo1v2.jpeg" style="max-width:210px;" /></a>
   </div>
 
 
@@ -3809,241 +3751,58 @@ Location- Feeding Homeless Felines Foundation, Inc.
 </div>
 
       
-      <div class="main-content-cta" style="position: absolute;z-index: 12;padding: 0;">
+     
        
-   <!--      <div class="bang" style="width: 83vw;height: 300px;background-color: lightblue;padding: 5px 7px 5px 7px;top:0;margin:auto;margin-top: -3.32vh;transform: translateX(1px);opacity: 0">
-          
-          <div class="searchbox" style="position: absolute;background-color: rgba(245,245,245,0.32);box-shadow: 3px rgba(0,0,0,0.32);padding: 0;margin-left: 4.4vw;">
-  <input style="color: black;font-weight: bold;" type="" placeholder="Search..."/>
-  <button class="submit"></button>
-  <div class="line"></div>
 
-</div>
-<div class="info" style="border: 1px solid rgba(0,0,0,0.032);display: flex;position: relative;margin-top: 36vh;margin-left: -1vw;justify-content: space-around;padding: 5px 7px 5px 7px;max-width: 320px;">
-  <img src="https://placehold.it/75x75.jpg" alt="">
-  <div class="title">words1</div>
-  <info class="desc">wrds2</info>
-</div> -->
-
-<!-- <script>
-  const images = document.querySelectorAll('[data-src]');
-
-  function preloadImage (img) {
-    const src = img.getAttribute("data-src");
-    if(!src){
-      return;
-    }
-
-    img.src = src;
-  }
-
-  const imageOptions = {
-    threshold: 1,
-
-  };
-
-  const imgObserver = new IntersectionObserver((entries,imgObserver) =>{
-    entries.forEach(entry => {
-      if(!entry.isIntersecting){
-        return;}
-      else{
-        preloadImage(entry.target);
-        imgObserver.unobserve(entry.target);
-
-      }
-    })
-  },imageOptions);
-
-  images.forEach(image => {
-    imgObserver.observes(image);
-  });
-</script> -->
-        </div>
-    
-      </div>
       
     </section>
-    <section class="footer">
-      <div class="notice" style="margin-top: -1vh;">
-        
-        <!-- <h1><a href="###">Learn More >></a></h1> -->
-      <div class="itemLogie">
-        <i class="fas fa fa-envelope"></i>
-        <div class="item-desc" style="margin-top: 3.75em;">
-          <h3>Currently Seeking Employment</h3>
-          <!-- <p>We can do our part. find out the facts.Learn how to contribute today with the help of FHFF we can get these cats off the streets and into an optimal situation! Learn about adoption and more.</p> -->
-        </div>
-      </div>
-
-      </div>
-      
-    </section>
-  </div>
-<div id='main1' style="margin-top: 15vh;background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/topography.png');" >
-  <div class="titleExperience" style="font-size: 3em;padding: 5px 7px 5px 7px;letter-spacing: 0.05em;">Why LWMedia?</div>
-</div>
-<div id="sectionGrid50" style="">
- <div class="div1" style="padding: 2em 3em;">
-  <h3>FIRST TIME AT Example?</h3>
-  <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, dolorum esse iste?</h4>
-  <br>
-  <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo asperiores amet nemo suscipit. Consequatur, odio, quas!</h4>
-
- </div>
- <div class="div2" style="padding: 2em 3em;"> <h3>Second TIME AT THE MCA?</h3>
-  <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, dolorum esse iste?</h4>
-  <br>
-  <h3>Second</h3>
-  <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo asperiores amet nemo suscipit. Consequatur, odio, quas!</h4></div>
- <div class="div3" style="padding: 2em 3em;"> <h3>Third TIME AT THE MCA?</h3>
-  <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, dolorum esse iste?</h4>
-  <br>
-  <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo asperiores amet nemo suscipit. Consequatur, odio, quas!</h4></div>
- <div class="div4" style="padding: 2em 3em;"> <h3>fourth TIME AT THE MCA?</h3>
-  <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, dolorum esse iste?</h4>
-  <br>
-  <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo asperiores amet nemo suscipit. Consequatur, odio, quas!</h4>
-</div>
-</div>
-
-<div class="gridName2" style="display: grid;grid-template-columns: 1fr;background-color: goldenrod;justify-items: center;">
-  <div class="griddy4" style="">HTTPS:// SECURE CONNECTION GUARANTEED <i class="fa fa-lock"></i></div>
-  
-</div>
-
-
-   <div>
-<div class="griddy2" style="display: grid;grid-template-columns: repeat(auto-fill, 1fr);grid-auto-rows:  67vh;position: relative;">
-   <div class='hero-box-container' style="display: grid;grid-template-columns: 1fr;">
-    <a href='' class='hero-box'>
-      <span class='hero-box__circle hero-box__circle--blue'></span>
-      <h2 class='hero-box__title'>Redesign your Website</h2>
-      <p class='hero-box__body'>Get instant boost</br> in sales, style points, and confidence with a redesign. Contact me!</p>
-    </a>
-    <a href='' class='hero-box'>
-     <span class='hero-box__circle hero-box__circle--green'></span>
-     <h2 class='hero-box__title'>Business Development</h2>
-     <p class='hero-box__body'>Need to smooth out your business processes</br>, but dont know where to start? Let me make your work flow simple!</p>
-    </a>
-    <a href='' class='hero-box'>
-      <span class='hero-box__circle hero-box__circle--orange'></span>
-      <h2 class='hero-box__title'>Application Development</h2>
-      <p class='hero-box__body'>Have an idea and need to bring it to life?</br> Contact me to get started</p>
-    </a>
-  </div>
-  
-</div>
-</div>
-
-
- <div class="textBox">
-    <div>
-      <p>Beauty, Madness And Everything Else.</p>
-    </div>
+ 
   </div>
 
-  <div id="container-1" class="container-fluid">
-    <div ></div>
-  </div>
-  
-<!--   <div id="container-2" class="container-fluid">
-    
-    <div class="row header">
-      <div class="col-xs-12 ">
-        <h3>SKILLS AND TOOLS: </h3>
-      </div>
-    </div>
-
-    <div class="row skills-block">
-      <div class="iconSkill col-lg-3 col-sm-6 col-xs-12">
-      <i class="devicon-javascript-plain"></i>
-      </div>
-      <div class="iconSkill col-lg-3 col-sm-6 col-xs-12">
-      <i class="devicon-css3-plain-wordmark"></i>
-      </div>   
-      <div class="iconSkill col-lg-3 col-sm-6 col-xs-12">
-      <i class="devicon-html5-plain-wordmark"></i>
-      </div>
-      <div class="iconSkill col-lg-3 col-sm-6 col-xs-12">
-      <i class="devicon-github-plain"></i>
-      </div>
-    </div>
-
-    <div class="row skills-block">
-      <div class="iconSkill col-lg-3 col-sm-6 col-xs-12">
-      <i class="devicon-react-plain-wordmark"></i>
-      </div>
-      <div class="iconSkill col-lg-3 col-sm-6 col-xs-12">
-      <i class="devicon-mongodb-plain-wordmark"></i>
-      </div>
-      <div class="iconSkill col-lg-3 col-sm-6 col-xs-12">
-      <i class="devicon-nodejs-plain-wordmark"></i>
-      </div>
-      <div class="iconSkill col-lg-3 col-sm-6 col-xs-12">
-      <i class="devicon-mysql-plain"></i>
-      </div>
-    </div>
-    
-    <div class="row skills-block">
-      <div class="iconSkill col-lg-3 col-sm-6 col-xs-12">
-      <i class="devicon-wordpress-plain-wordmark"></i>
-      </div>
-      <div class="iconSkill col-lg-3 col-sm-6 col-xs-12">
-      <i class="devicon-jquery-plain-wordmark"></i>
-      </div>
-      <div class="iconSkill col-lg-3 col-sm-6 col-xs-12">
-      <i class="devicon-sass-plain"></i>
-      </div>
-      <div class="iconSkill col-lg-3 col-sm-6 col-xs-12">
-      <i class="devicon-python-plain"></i>
-      </div>
-    </div>
-    
-  </div> -->
 
   <div id="container-3">
-    <h3>MY WORK: </h3>
+    <h3>Services </h3>
   <ul id="grid">
     <li>
         <a class="gridCell" href="#">
             <img class="gridImg" src="https://dl3.pushbulletusercontent.com/DdeisnCbZI8GwZJ3oAFTn3SgNIuocPz3/showCaseLogoFHFF.jpg">
             <span class="gridOverlay"></span>
-            <span class="gridText">View Project</span>
+            <span class="gridText">View Services</span>
         </a>
     </li>
     <li>
         <a class="gridCell" href="#">
             <img class="gridImg" src="https://dl3.pushbulletusercontent.com/yU3wAhkRywSjbykY6VS34brAbiiYbacA/showCaseLogocanigan.jpg">
             <span class="gridOverlay"></span>
-            <span class="gridText">View Project</span>
+            <span class="gridText">View Services</span>
         </a>
     </li>
     <li>
         <a class="gridCell" href="#">
             <img class="gridImg" src="https://res.cloudinary.com/dt4qeehms/image/upload/q_100/v1470090146/Portfolio/wp2_y2rkr8.png">
             <span class="gridOverlay"></span>
-            <span class="gridText">View Project</span>
+            <span class="gridText">View Services</span>
         </a>
     </li>
     <li>
         <a class="gridCell" href="#">
             <img class="gridImg" src="https://dl3.pushbulletusercontent.com/ZMmay0sBkCxqnmA3vb6zrHTG1stwoRlF/showCaseLogoinnerG.jpeg">
             <span class="gridOverlay"></span>
-            <span class="gridText">View Project</span>
+            <span class="gridText">View Services</span>
         </a>
     </li>
     <li>
         <a class="gridCell" href="#">
             <img class="gridImg" src="https://res.cloudinary.com/dt4qeehms/image/upload/q_100/v1470079575/Portfolio/drawings_f1vejf.png">
             <span class="gridOverlay"></span>
-            <span class="gridText">View Project</span>
+            <span class="gridText">View Services</span>
         </a>
     </li>
     <li>
         <a class="gridCell" href="#">
             <img class="gridImg" src="https://res.cloudinary.com/dt4qeehms/image/upload/q_100/v1470090135/Portfolio/fcc_uwvdrb.png">
             <span class="gridOverlay"></span>
-            <span class="gridText">View Project</span>
+            <span class="gridText">View Services</span>
         </a>
     </li>
 
@@ -4052,8 +3811,8 @@ Location- Feeding Homeless Felines Foundation, Inc.
   
   <div id="container-4" class="row">
     <section class="about col-lg-4 col-sm-4 col-xs-12">
-        <h3>THE AUTHOR</h3>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabot.</p>
+        <h3>Griselle Q.</h3>
+        <p>Griselle is awesome. <a href="#">See Bio</a></p>
         <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.</p>
       </section>
     <section class="contact col-lg-4 col-sm-4 col-xs-12">
@@ -4561,7 +4320,7 @@ Sparkle.prototype = {
   
   
   
-  "datauri" : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAHCAYAAAD5wDa1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIE1hY2ludG9zaCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozNDNFMzM5REEyMkUxMUUzOEE3NEI3Q0U1QUIzMTc4NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozNDNFMzM5RUEyMkUxMUUzOEE3NEI3Q0U1QUIzMTc4NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjM0M0UzMzlCQTIyRTExRTM4QTc0QjdDRTVBQjMxNzg2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjM0M0UzMzlDQTIyRTExRTM4QTc0QjdDRTVBQjMxNzg2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+jzOsUQAAANhJREFUeNqsks0KhCAUhW/Sz6pFSc1AD9HL+OBFbdsVOKWLajH9EE7GFBEjOMxcUNHD8dxPBCEE/DKyLGMqraoqcd4j0ChpUmlBEGCFRBzH2dbj5JycJAn90CEpy1J2SK4apVSM4yiKonhePYwxMU2TaJrm8BpykpWmKQ3D8FbX9SOO4/tOhDEG0zRhGAZo2xaiKDLyPGeSyPM8sCxr868+WC/mvu9j13XBtm1ACME8z7AsC/R9r0fGOf+arOu6jUwS7l6tT/B+xo+aDFRo5BykHfav3/gSYAAtIdQ1IT0puAAAAABJRU5ErkJggg=="
+  "datauri" : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAHCAYAAAD5wDa1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIE1hY2ludG9zaCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozNDNFMzM5REEyMkUxMUUzOEE3NEI3Q0U1QUIzMTc4NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozNDNFMzM5RUEyMkUxMUUzOEE3NEI3Q0U1QUIzMTc4NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjM0M0UzMzlCQTIyRTExRTM4QTc0QjdDRTVBQjMxNzg2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjM0M0UzMzlDQTIyRTExRTM4QTc0QjdDRTVBQjMxNzg2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+jzOsUQAAANhJREFUeNqsks0KhCAUhW/Sz6pFSc1AD9HL+OBFbdsVOKWLajH9EE7GFBEjOMxcUNHD8dxPBCEE/DKyLGMqraoqcd4j0ChpUmlBEGCFRBzH2dbj5JygqbaeAn90CEpy1J2SK4apVSM4yiKonhePYwxMU2TaJrm8BpykpWmKQ3D8FbX9SOO4/tOhDEG0zRhGAZo2xaiKDLyPGeSyPM8sCxr868+WC/mvu9j13XBtm1ACME8z7AsC/R9r0fGOf+arOu6jUwS7l6tT/B+xo+aDFRo5BykHfav3/gSYAAtIdQ1IT0puAAAAABJRU5ErkJggg=="
 
 }; 
 
