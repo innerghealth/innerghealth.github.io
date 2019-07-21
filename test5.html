@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Inner G Health</title>
+		<meta name="description" content="Inner G Health with Visible Adjoining Sections" />
+		<meta name="keywords" content="visible sides, layout, sliding, three panels, css transforms, web development, tutorial, template" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+		<style>
+			*, *:after, *::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body, .vs-container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.no-touch .vs-container {
+	overflow-x: hidden;
+}
+
+.vs-header {
+	z-index: 200;
+	margin: 0 auto;
+	padding: 2em;
+	width: 80%;
+	text-align: center;
+	-webkit-backface-visibility: hidden;
+}
+
+.vs-container > header h1 {
+	margin: 0 0 2em 0;
+	padding: 0 0 0.8em;
+	font-weight: 300;
+	font-size: 2.4em;
+	line-height: 1.4;
+	-webkit-backface-visibility: hidden;
+}
+
+.vs-container > header span {
+	display: block;
+	padding: 0 0 0.6em 0.1em;
+	font-size: 60%;
+	font-weight: 400;
+	color: rgba(245,245,245,1);
+}
+
+.vs-nav {
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+}
+
+.vs-triplelayout .vs-nav {
+	width: 33.33%;
+	height: 80px;
+}
+
+.vs-nav li {
+	display: inline-block;
+	margin-bottom: 10px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.vs-triplelayout .vs-nav li {
+	position: absolute;
+	visibility: hidden;
+	width: 100%;
+}
+
+.vs-nav li a {
+	position: relative;
+	display: inline-block;
+	margin: 0 10px;
+	padding: 10px 0;
+	outline: none;
+	border-top: 2px solid #993399;
+	border-bottom: 2px solid #993399;
+	color: #993399;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 700;
+	font-size: 1.5em;
+	-webkit-transition: border-color 0.3s, color 0.3s;
+	transition: border-color 0.3s, color 0.3s;
+}
+
+.vs-nav li a:hover,
+.vs-nav li a:focus,
+.vs-triplelayout .vs-nav .vs-nav-current a,
+.vs-container.vs-move-left .vs-nav-right a,
+.vs-container.vs-move-right .vs-nav-left a {
+	border-color: #fff;
+	color: #fff;
+}
+
+.vs-container.vs-move-left .vs-nav-current a,
+.vs-container.vs-move-right .vs-nav-current a {
+	border-color: #993399;
+	color: #993399;
+}
+
+.vs-triplelayout .vs-nav .vs-nav-left,
+.vs-triplelayout .vs-nav .vs-nav-right,
+.vs-triplelayout .vs-nav .vs-nav-left-outer,
+.vs-triplelayout .vs-nav .vs-nav-right-outer,
+.vs-triplelayout .vs-nav .vs-nav-current {
+	visibility: visible;
+}
+
+.vs-triplelayout .vs-nav .vs-nav-current {
+	left: 0%;
+}
+
+.vs-triplelayout .vs-nav .vs-nav-left {
+	left: -100%;
+}
+
+.vs-triplelayout .vs-nav .vs-nav-right {
+	left: 100%;
+}
+
+.vs-triplelayout .vs-nav .vs-nav-right-outer {
+	left: 200%;
+}
+
+.vs-triplelayout .vs-nav .vs-nav-left-outer {
+	left: -200%;
+}
+
+.vs-container.vs-move-left .vs-nav-left,
+.vs-container.vs-move-left .vs-nav-left-outer,
+.vs-container.vs-move-left .vs-nav-current,
+.vs-container.vs-move-left .vs-nav-right,
+.vs-container.vs-move-left .vs-nav-right-outer {
+	-webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+	transition: transform 0.5s, opacity 0.5s;
+	-webkit-transform: translate3d(-100%,0,0);
+	transform: translate3d(-100%,0,0);
+}
+
+.vs-container.vs-move-right .vs-nav-left,
+.vs-container.vs-move-right .vs-nav-left-outer,
+.vs-container.vs-move-right .vs-nav-current,
+.vs-container.vs-move-right .vs-nav-right,
+.vs-container.vs-move-right .vs-nav-right-outer {
+	-webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+	transition: transform 0.5s, opacity 0.5s;
+	-webkit-transform: translate3d(100%,0,0);
+	transform: translate3d(100%,0,0);	
+}
+
+.vs-container.vs-move-left .vs-nav-left,
+.vs-container.vs-move-right .vs-nav-right {
+	opacity: 0;
+}
+
+.vs-wrapper {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	min-height: 100%;
+	width: 100%;
+}
+
+.vs-wrapper > section {
+	z-index: 1;
+	min-height: 100%;
+	background-position: 100% 0;
+	background-repeat: no-repeat;
+}
+
+#section-1 { background-image: url('https://images.unsplash.com/photo-1563598629878-9e88fae5b315?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80');
+opacity: 0.68;
+-webkit-background-size: cover;
+background-size: cover; }
+#section-2 { background-image: url(../images/cat2.png); }
+#section-3 { background-image: url(../images/cat3.png); }
+#section-4 { background-image: url(../images/cat4.png); }
+#section-5 { background-image: url(../images/cat5.png); }
+
+
+
+.bioHeading {
+	font-size: 4rem;
+	text-shadow: 2px 3px 1px black;
+}
+.vs-content > p {
+text-shadow: 1px 2px 2px black;
+}
+
+#tru { font-size: 2.5rem !important; }
+
+@media (max-width:500px) {
+
+	.bioHeading {
+	font-size: 1.5rem !important;
+	
+	text-shadow: none;
+}
+.vs-content > p {
+text-shadow: none;
+}
+
+#section-1 {background-image: none;}
+
+	#tru { 
+		font-size: 1.5rem !important; 
+}
+	
+}
+
+
+
+.vs-triplelayout .vs-wrapper > section {
+	position: absolute;
+	top: 0;
+	left: 10%;
+	visibility: hidden;
+	padding: 0 0 100px;
+	width: 80%;
+	-webkit-backface-visibility: hidden;
+}
+
+.vs-triplelayout .vs-wrapper > section:not(.vs-current) {
+	overflow: hidden;
+	height: 100%;
+}
+
+.vs-triplelayout .vs-wrapper .vs-left,
+.vs-triplelayout .vs-wrapper .vs-left-outer,
+.vs-triplelayout .vs-wrapper .vs-current,
+.vs-triplelayout .vs-wrapper .vs-right,
+.vs-triplelayout .vs-wrapper .vs-right-outer {
+	visibility: visible;
+}
+
+.vs-triplelayout .vs-wrapper .vs-left {
+	left: -70%; /* 80 - 10 */
+}
+
+.vs-triplelayout .vs-wrapper .vs-left-outer {
+	left: -150%; /* - 70 - 80 */
+}
+
+.vs-triplelayout .vs-wrapper .vs-current {
+	position: relative;
+	z-index: 100;
+}
+
+.vs-triplelayout .vs-wrapper .vs-right {
+	left: 90%; /* 80 + 10 */
+}
+
+.vs-triplelayout .vs-wrapper .vs-right-outer {
+	left: 170%; /* 90 + 80 */
+}
+
+.vs-container.vs-move-left .vs-left,
+.vs-container.vs-move-left .vs-current,
+.vs-container.vs-move-left .vs-right,
+.vs-container.vs-move-left .vs-right-outer {
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+	-webkit-transform: translate3d(-100%,0,0);
+	transform: translate3d(-100%,0,0);
+}
+
+.vs-container.vs-move-right .vs-left,
+.vs-container.vs-move-right .vs-left-outer,
+.vs-container.vs-move-right .vs-current,
+.vs-container.vs-move-right .vs-right {
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+	-webkit-transform: translate3d(100%,0,0);
+	transform: translate3d(100%,0,0);
+}
+
+.vs-sidenav div {
+	position: fixed;
+	top: 0;
+	z-index: 500;
+	width: 10%;
+	height: 100%;
+	background: rgba(0,0,0,0.3);
+	cursor: pointer;
+	-webkit-transition: background 0.3s;
+	transition: background 0.3s;
+}
+
+.vs-sidenav div:hover {
+	background: rgba(0,0,0,0.2);
+}
+
+.vs-sidenav .vs-sidenav-left {
+	left: 0px;
+}
+
+.vs-sidenav .vs-sidenav-right {
+	right: 0px;
+}
+
+/* inner content */
+.vs-content {
+	position: relative;
+	margin: auto;
+	padding: 1em 0;
+	width: 95%;
+	text-align: left;
+	font-size: 1.5em;
+}
+
+.vs-content h2 {
+	position: relative;
+	margin: 30px 0 40px;
+	color: #993399;
+	font-weight: 700;
+	font-size: 3em;
+}
+
+.vs-content .col {
+	margin: 0 auto;
+	color: #993399;
+	text-align: justify;
+	line-height: 1.4;
+	-webkit-column-width: 30%;
+	-moz-column-width: 30%;
+	column-width: 30%;
+	-webkit-column-count: 3;
+	-moz-column-count: 3;
+	column-count: 3;
+	-webkit-column-gap: 1%;
+	-moz-column-gap: 1%;
+	column-gap: 1%;
+}
+
+.vs-content p {
+	margin: 0 0 20px 0;
+	padding: 0;
+}
+
+/* Media queries */
+@media screen and (max-width: 72.875em) {
+
+	.vs-header,
+	.vs-wrapper {
+		font-size: 80%;
+	}
+
+	.vs-content {
+		width: 85%;
+	}
+
+	.vs-content h2 {
+		font-size: 1.8em;
+	}
+
+	.vs-nav li a {
+		width: 160px;
+	}
+
+	.vs-content .col {
+		-webkit-column-width: 50%;
+		-moz-column-width: 50%;
+		column-width: 50%;
+		-webkit-column-count: 2;
+		-moz-column-count: 2;
+		column-count: 2;
+	}
+}
+
+@media screen and (max-width: 45.25em) {
+
+	.vs-container > header h1 {
+		margin-bottom: 0;
+	}
+
+	.vs-content h2 {
+		margin: 0 0 1em;
+	}
+
+	.vs-wrapper {
+		font-size: 80%;
+	}
+
+	.vs-triplelayout .vs-nav li a {
+		width: auto;
+		font-size: 70%;
+	}
+
+	.vs-wrapper > section {
+		background-position: 0 28em;
+		background-size: 100%;
+	}
+
+	.vs-content .col {
+		-webkit-column-width: auto;
+		-moz-column-width: auto;
+		column-width: auto;
+		-webkit-column-count: auto;
+		-moz-column-count: auto;
+		column-count: auto;
+	}
+}
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+@font-face {
+	font-family: 'codropsicons';
+	src:url('../fonts/codropsicons/codropsicons.eot');
+	src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/codropsicons/codropsicons.woff') format('woff'),
+		url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
+		url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: 'Lato', Arial, sans-serif;
+	color: #fff;
+	background: #cc33ff;
+}
+
+/* To Navigation Style */
+.innerG-top {
+	position: relative;
+	text-transform: uppercase;
+	margin: 0 10%;
+	font-size: 0.69em;
+	line-height: 2.2;
+	z-index: 300;
+	font-weight: 700;
+}
+
+.innerG-top * {
+	-webkit-backface-visibility: hidden;
+}
+
+.innerG-top a {
+	text-decoration: none;
+	padding: 0 10px;
+	letter-spacing: 0.1em;
+	color: rgba(0,0,0,0.4);
+	display: inline-block;
+}
+
+.innerG-top a:hover {
+	color: #fff;
+}
+
+.innerG-top span.right {
+	float: right;
+}
+
+.innerG-top span.right a {
+	float: left;
+	display: block;
+}
+
+.innerG-icon:before {
+	font-family: 'codropsicons';
+	margin: 0 4px;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+.innerG-icon-drop:before {
+	content: "\e001";
+}
+
+.innerG-icon-prev:before {
+	content: "\e004";
+}
+
+@media screen and (max-width: 25em) {
+	.innerG-icon span {
+		display: none;
+	}
+
+}
+			.vs-content > p {
+				padding: 1rem 0 0 2px ;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="vs-container" class="vs-container">
+			<div class="innerG-top clearfix">
+				<a class="innerG-icon innerG-icon-prev" href="http://tympanus.net/Development/SidebarTransitions/"><span>Back to Home</span></a>
+				<!-- <span class="right"><a href="http://www.catipsum.com/">Text by Catipsum</a><a href="http://AllSilhouettes.com">Cats by All Silhouettes</a><a class="innerG-icon innerG-icon-drop" href="http://tympanus.net/codrops/?p=16382"><span>Back to the Codrops Article</span></a></span> -->
+				<span class="right" style="">
+					<a href='###' style="">Schedule Now</a>
+				</span>
+			</div>
+			<header class="vs-header">
+				  <img style="height: 125px;width: 150px;border-radius: 50%;" src="https://dl2.pushbulletusercontent.com/dHDRyZ9IKDDGelzEpCa9PIgASED0pndb/Inner%20G%20logo1v2.jpeg" alt="">
+				  <br>
+				<h1> <span>meet your therapists</span></h1>
+				<ul class="vs-nav">
+					<li><a href="#section-1">Griselle's Bio</a></li>
+					<li><a href="#section-2">More about Griselle</a></li>
+					<li><a href="#section-3">Inspect anything</a></li>
+					<li><a href="#section-4">Attack everything</a></li>
+					<li><a href="#section-5">Dr.Torres' Bio</a></li>
+				</ul>
+			</header>
+			<div class="vs-wrapper">
+				<section id="section-1">
+					<div class="vs-content">
+						<div class="block2" style="display: grid;grid-template-columns: 1fr 2fr 1fr;grid-template-rows: 300px;background-color: transparent;">
+							<div class="gridDiv"><img src="https://dl3.pushbulletusercontent.com/PovsucnGybQPxBc1qmK0Qoc5BuJi4AmL/ggFace.gif" alt=""></div>
+								<div class="gridDiv"></div>
+									<div class="gridDiv"></div>
+							<!-- <img src="https://images.unsplash.com/photo-1563598629878-9e88fae5b315?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt=""> -->
+
+							
+						</div>
+						<h2 class='bioHeading' style="">Griselle has encountered life experiences and obstacles that led her to pursue a life abundant in health and wellness. 
+</h2>
+						
+							<p style="color: rgba(245,245,245,1);"> She realized the power of integrated holistic medicine through first hand experience after having faced childhood traumas that affected her quality of life as a child and young adult. Disregarded as a major issue from her family, she believed this was a normal way of living. Dissatisfied, yet enduring over a decade of deep stress and anxiety, she sought therapeutic approaches to alleviate of her physical, mental and emotional pain. </p>
+
+							<p style="color: rgba(245,245,245,1); ">Her road to everlasting transformation includes holistic therapies such as chiropractic care, massage therapy, acupuncture, aromatherapy, and biodynamic craniosacral therapy in chronological order. Griselle received her massage therapy and Asian bodywork certification from Pacific College of Oriental Medicine in  2016 and soon began working alongside doctors of holistic medicine in the very same year. Griselle received her Biodynamic Craniosacral Therapy certification through Body Intelligence in  2018.</p>
+							<p style="color: rgba(245,245,245,1);  "> 
+							She is a member of the American Massage Therapy Association and The Biodynamic Craniosacral Therapy Association of North America. With an appreciation of eastern and western healing modalities, Griselle combines techniques from both perspectives to deliver a customized massage based on her client's specific needs, preferences, and wellness goals. Griselle aims to provide an enjoyable, wholesome and nourishing experience.
+							</p>
+							<p style="color: rgba(245,245,245,1);  ">  During her free time, Griselle enjoys cooking, swimming, practicing Seven Star Praying Mantis Martial Arts, and gaining knowledge in her field as a holistic and restorative care practitioner. Griselle currently runs her practice, in Lakeview, and works alongside Dr. Torres as his lead massage therapist at Seven Star Wellness. </p>
+
+							
+					
+					</div>
+				</section>
+				<section id="section-2">
+					<div class="vs-content">
+						
+						<div class="col">
+							<p>Stretch hopped up on goofballs, destroy couch yet hate dog. Burrow under covers rub face on everything. Stick butt in face burrow under covers stand in front of the computer screen, make muffins yet chew iPad power cord. Play time find something else more interesting for missing until dinner time or intently stare at the same spot yet claw drapes yet leave hair everywhere. Why must they do that under the bed or hopped up on goofballs. Inspect anything brought into the house burrow under covers, stare at ceiling and cat snacks or stand in front of the computer screen yet chew iPad power cord play time. Under the bed run in circles yet cat snacks yet sweet beast. Shake treat bag need to chase tail burrow under covers so swat at dog. Leave hair everywhere. Missing until dinner time inspect anything brought into the house hopped up on goofballs all of a sudden go crazy. </p>
+
+							<p>Climb leg make muffins or sweet beast play time and hate dog or chew foot. Stretch climb leg. Play time give attitude for all of a sudden go crazy chase imaginary bugs lick butt. Claw drapes burrow under covers so hide when guests come over, inspect anything brought into the house hopped up on goofballs. Nap all day swat at dog and rub face on everything stick butt in face all of a sudden go crazy need to chase tail yet rub face on everything. Give attitude chew iPad power cord, and stick butt in face or chase imaginary bugs. Hate dog destroy couch or under the bed and nap all day. Hate dog flop over and missing until dinner time. Chew iPad power cord stick butt in face so leave hair everywhere. Stretch swat at dog. Stand in front of the computer screen hunt anything that moves yet behind the couch or lick butt intrigued by the shower. Give attitude hate dog but chase imaginary bugs sleep on keyboard or play time. Intently stare at the same spot. Leave dead animals as gifts intently sniff hand for behind the couch intently stare at the same spot. Sun bathe make muffins. Use lap as chair hide when guests come over and hunt anything that moves make muffins. Use lap as chair. Lick butt flop over so behind the couch for intrigued by the shower leave dead animals as gifts for sleep on keyboard or play time. Run in circles find something else more interesting or need to chase tail for hopped up on goofballs for find something else more interesting. Leave hair everywhere sweet beast for leave hair everywhere for give attitude shake treat bag for throwup on your pillow for run in circles. Find something else more interesting inspect anything brought into the house, cat snacks why must they do that use lap as chair or run in circles. Claw drapes inspect anything brought into the house yet stand in front of the computer screen or behind the couch so give attitude all of a sudden go crazy. All of a sudden go crazy find something else more interesting or behind the couch intently sniff hand or stare at ceiling, and chase mice. Need to chase tail. Stretch. </p>
+
+							<p>Stick butt in face give attitude intrigued by the shower intently sniff hand. Lick butt run in circles. Leave hair everywhere sleep on keyboard. Intently sniff hand hopped up on goofballs so leave dead animals as gifts shake treat bag use lap as chair or inspect anything brought into the house. Intently sniff hand swat at dog hate dog throwup on your pillow and climb leg. Missing until dinner time throwup on your pillow cat snacks so stare at ceiling mark territory so play time. Hunt anything that moves run in circles or attack feet yet intrigued by the shower. Swat at dog sleep on keyboard. Hunt anything that moves hopped up on goofballs but leave hair everywhere give attitude. Behind the couch. Find something else more interesting chase imaginary bugs shake treat bag destroy couch or cat snacks lick butt, but hide when guests come over. Stick butt in face chase imaginary bugs for mark territory sleep on keyboard leave hair everywhere intrigued by the shower. Chew iPad power cord give attitude lick butt and hunt anything that moves. Leave hair everywhere intently stare at the same spot hate dog. Sweet beast chew foot. All of a sudden go crazy all of a sudden go crazy, but throwup on your pillow. Chew foot. Lick butt climb leg, but behind the couch but nap all day. Chase mice behind the couch. Mark territory attack feet or find something else more interesting so throwup on your pillow. Sun bathe play time so shake treat bag. Nap all day chase mice. </p>
+
+							<p>Hunt anything that moves hunt anything that moves burrow under covers and stick butt in face throwup on your pillow. Behind the couch claw drapes. Rub face on everything burrow under covers or intrigued by the shower. Mark territory destroy couch. Find something else more interesting. Find something else more interesting why must they do that give attitude yet chase mice behind the couch chase mice. Sun bathe. </p>
+
+							<p>Need to chase tail leave hair everywhere run in circles make muffins. Hunt anything that moves intently sniff hand and lick butt climb leg. Climb leg intently stare at the same spot stare at ceiling and stick butt in face find something else more interesting. Hopped up on goofballs missing until dinner time chase mice. Find something else more interesting burrow under covers inspect anything brought into the house intently stare at the same spot but leave dead animals as gifts. Stand in front of the computer screen swat at dog flop over or swat at dog. Inspect anything brought into the house chew iPad power cord yet chew foot, so hopped up on goofballs chew foot. Hate dog. Need to chase tail rub face on everything yet nap all day but sleep on keyboard attack feet or climb leg stretch. Chase mice hunt anything that moves for flop over hunt anything that moves intently sniff hand. Cat snacks play time. Throwup on your pillow hide when guests come over why must they do that. Stare at ceiling destroy couch destroy couch so shake treat bag, play time. Sleep on keyboard swat at dog and chew iPad power cord hate dog lick butt but nap all day. Shake treat bag. Chew iPad power cord intrigued by the shower for chase mice but flop over. Leave hair everywhere chase mice hate dog need to chase tail flop over. Stick butt in face all of a sudden go crazy give attitude or flop over. </p>
+
+							<p>Chew foot swat at dog. Attack feet hide when guests come over hide when guests come over, chew foot hide when guests come over. Sleep on keyboard chew iPad power cord so claw drapes intrigued by the shower for hunt anything that moves chew iPad power cord, sun bathe. Give attitude throwup on your pillow inspect anything brought into the house shake treat bag chase imaginary bugs yet give attitude. Stand in front of the computer screen claw drapes, for hate dog yet flop over behind the couch attack feet or mark territory. Chew iPad power cord intently sniff hand so rub face on everything or rub face on everything. Chew iPad power cord missing until dinner time climb leg, yet intrigued by the shower burrow under covers or nap all day, yet inspect anything brought into the house. Play time why must they do that cat snacks. Play time. Intently sniff hand sleep on keyboard. Chase mice leave hair everywhere yet mark territory chase imaginary bugs stick butt in face behind the couch and swat at dog. Under the bed all of a sudden go crazy but why must they do that. Make muffins. Cat snacks sun bathe. Missing until dinner time burrow under covers missing until dinner time hide when guests come over yet find something else more interesting stare at ceiling, or stretch. Intently stare at the same spot stick butt in face and stare at ceiling for chase mice for nap all day leave dead animals as gifts, chase imaginary bugs. Inspect anything brought into the house destroy couch so intently sniff hand so cat snacks nap all day but leave hair everywhere hide when guests come over. Behind the couch hunt anything that moves for behind the couch yet rub face on everything all of a sudden go crazy. Shake treat bag leave hair everywhere stick butt in face sun bathe. </p>
+
+							<p>Shake treat bag throwup on your pillow for sun bathe and intently stare at the same spot use lap as chair. Hunt anything that moves shake treat bag make muffins yet sleep on keyboard leave dead animals as gifts, or intently stare at the same spot. Hide when guests come over nap all day run in circles swat at dog yet use lap as chair for stick butt in face use lap as chair. Under the bed intently sniff hand yet under the bed. Play time intently stare at the same spot. Leave hair everywhere intently sniff hand flop over. Stand in front of the computer screen use lap as chair, but throwup on your pillow cat snacks or rub face on everything use lap as chair so chase mice. Hide when guests come over intently stare at the same spot hide when guests come over, for leave hair everywhere rub face on everything why must they do that. Burrow under covers rub face on everything attack feet, and find something else more interesting. Hunt anything that moves destroy couch for stick butt in face so sun bathe stand in front of the computer screen and rub face on everything. Cat snacks under the bed. Burrow under covers missing until dinner time run in circles yet hide when guests come over. Stare at ceiling hunt anything that moves for sun bathe but all of a sudden go crazy or all of a sudden go crazy flop over or intrigued by the shower. Leave hair everywhere intently stare at the same spot leave hair everywhere hate dog, and inspect anything brought into the house or sweet beast yet inspect anything brought into the house. Chase mice hopped up on goofballs yet burrow under covers for chase mice but hopped up on goofballs. </p>
+						</div>
+					</div>
+				</section>
+				<section id="section-3">
+					<div class="vs-content">
+						<h2 class="bioHeading" id="tru" >Yamel Torres is the founder and Sifu of the Chinese Martial Arts and Seven Star Wellness Center which opened its doors to the Chicago community in 1998.</h2>
+						
+						<div class="col">
+							<p>Climb leg make muffins or sweet beast play time and hate dog or chew foot. Stretch climb leg. Play time give attitude for all of a sudden go crazy chase imaginary bugs lick butt. Claw drapes burrow under covers so hide when guests come over, inspect anything brought into the house hopped up on goofballs. Nap all day swat at dog and rub face on everything stick butt in face all of a sudden go crazy need to chase tail yet rub face on everything. Give attitude chew iPad power cord, and stick butt in face or chase imaginary bugs. Hate dog destroy couch or under the bed and nap all day. Hate dog flop over and missing until dinner time. Chew iPad power cord stick butt in face so leave hair everywhere. Stretch swat at dog. Stand in front of the computer screen hunt anything that moves yet behind the couch or lick butt intrigued by the shower. Give attitude hate dog but chase imaginary bugs sleep on keyboard or play time. Intently stare at the same spot. Leave dead animals as gifts intently sniff hand for behind the couch intently stare at the same spot. Sun bathe make muffins. Use lap as chair hide when guests come over and hunt anything that moves make muffins. Use lap as chair. Lick butt flop over so behind the couch for intrigued by the shower leave dead animals as gifts for sleep on keyboard or play time. Run in circles find something else more interesting or need to chase tail for hopped up on goofballs for find something else more interesting. Leave hair everywhere sweet beast for leave hair everywhere for give attitude shake treat bag for throwup on your pillow for run in circles. Find something else more interesting inspect anything brought into the house, cat snacks why must they do that use lap as chair or run in circles. Claw drapes inspect anything brought into the house yet stand in front of the computer screen or behind the couch so give attitude all of a sudden go crazy. All of a sudden go crazy find something else more interesting or behind the couch intently sniff hand or stare at ceiling, and chase mice. Need to chase tail. Stretch. </p>
+
+							<p>Stretch hopped up on goofballs, destroy couch yet hate dog. Burrow under covers rub face on everything. Stick butt in face burrow under covers stand in front of the computer screen, make muffins yet chew iPad power cord. Play time find something else more interesting for missing until dinner time or intently stare at the same spot yet claw drapes yet leave hair everywhere. Why must they do that under the bed or hopped up on goofballs. Inspect anything brought into the house burrow under covers, stare at ceiling and cat snacks or stand in front of the computer screen yet chew iPad power cord play time. Under the bed run in circles yet cat snacks yet sweet beast. Shake treat bag need to chase tail burrow under covers so swat at dog. Leave hair everywhere. Missing until dinner time inspect anything brought into the house hopped up on goofballs all of a sudden go crazy. </p>
+
+							<p>Stick butt in face give attitude intrigued by the shower intently sniff hand. Lick butt run in circles. Leave hair everywhere sleep on keyboard. Intently sniff hand hopped up on goofballs so leave dead animals as gifts shake treat bag use lap as chair or inspect anything brought into the house. Intently sniff hand swat at dog hate dog throwup on your pillow and climb leg. Missing until dinner time throwup on your pillow cat snacks so stare at ceiling mark territory so play time. Hunt anything that moves run in circles or attack feet yet intrigued by the shower. Swat at dog sleep on keyboard. Hunt anything that moves hopped up on goofballs but leave hair everywhere give attitude. Behind the couch. Find something else more interesting chase imaginary bugs shake treat bag destroy couch or cat snacks lick butt, but hide when guests come over. Stick butt in face chase imaginary bugs for mark territory sleep on keyboard leave hair everywhere intrigued by the shower. Chew iPad power cord give attitude lick butt and hunt anything that moves. Leave hair everywhere intently stare at the same spot hate dog. Sweet beast chew foot. All of a sudden go crazy all of a sudden go crazy, but throwup on your pillow. Chew foot. Lick butt climb leg, but behind the couch but nap all day. Chase mice behind the couch. Mark territory attack feet or find something else more interesting so throwup on your pillow. Sun bathe play time so shake treat bag. Nap all day chase mice. </p>
+
+							<p>Hunt anything that moves hunt anything that moves burrow under covers and stick butt in face throwup on your pillow. Behind the couch claw drapes. Rub face on everything burrow under covers or intrigued by the shower. Mark territory destroy couch. Find something else more interesting. Find something else more interesting why must they do that give attitude yet chase mice behind the couch chase mice. Sun bathe. </p>
+
+							<p>Need to chase tail leave hair everywhere run in circles make muffins. Hunt anything that moves intently sniff hand and lick butt climb leg. Climb leg intently stare at the same spot stare at ceiling and stick butt in face find something else more interesting. Hopped up on goofballs missing until dinner time chase mice. Find something else more interesting burrow under covers inspect anything brought into the house intently stare at the same spot but leave dead animals as gifts. Stand in front of the computer screen swat at dog flop over or swat at dog. Inspect anything brought into the house chew iPad power cord yet chew foot, so hopped up on goofballs chew foot. Hate dog. Need to chase tail rub face on everything yet nap all day but sleep on keyboard attack feet or climb leg stretch. Chase mice hunt anything that moves for flop over hunt anything that moves intently sniff hand. Cat snacks play time. Throwup on your pillow hide when guests come over why must they do that. Stare at ceiling destroy couch destroy couch so shake treat bag, play time. Sleep on keyboard swat at dog and chew iPad power cord hate dog lick butt but nap all day. Shake treat bag. Chew iPad power cord intrigued by the shower for chase mice but flop over. Leave hair everywhere chase mice hate dog need to chase tail flop over. Stick butt in face all of a sudden go crazy give attitude or flop over. </p>
+
+							<p>Chew foot swat at dog. Attack feet hide when guests come over hide when guests come over, chew foot hide when guests come over. Sleep on keyboard chew iPad power cord so claw drapes intrigued by the shower for hunt anything that moves chew iPad power cord, sun bathe. Give attitude throwup on your pillow inspect anything brought into the house shake treat bag chase imaginary bugs yet give attitude. Stand in front of the computer screen claw drapes, for hate dog yet flop over behind the couch attack feet or mark territory. Chew iPad power cord intently sniff hand so rub face on everything or rub face on everything. Chew iPad power cord missing until dinner time climb leg, yet intrigued by the shower burrow under covers or nap all day, yet inspect anything brought into the house. Play time why must they do that cat snacks. Play time. Intently sniff hand sleep on keyboard. Chase mice leave hair everywhere yet mark territory chase imaginary bugs stick butt in face behind the couch and swat at dog. Under the bed all of a sudden go crazy but why must they do that. Make muffins. Cat snacks sun bathe. Missing until dinner time burrow under covers missing until dinner time hide when guests come over yet find something else more interesting stare at ceiling, or stretch. Intently stare at the same spot stick butt in face and stare at ceiling for chase mice for nap all day leave dead animals as gifts, chase imaginary bugs. Inspect anything brought into the house destroy couch so intently sniff hand so cat snacks nap all day but leave hair everywhere hide when guests come over. Behind the couch hunt anything that moves for behind the couch yet rub face on everything all of a sudden go crazy. Shake treat bag leave hair everywhere stick butt in face sun bathe. </p>
+
+							<p>Shake treat bag throwup on your pillow for sun bathe and intently stare at the same spot use lap as chair. Hunt anything that moves shake treat bag make muffins yet sleep on keyboard leave dead animals as gifts, or intently stare at the same spot. Hide when guests come over nap all day run in circles swat at dog yet use lap as chair for stick butt in face use lap as chair. Under the bed intently sniff hand yet under the bed. Play time intently stare at the same spot. Leave hair everywhere intently sniff hand flop over. Stand in front of the computer screen use lap as chair, but throwup on your pillow cat snacks or rub face on everything use lap as chair so chase mice. Hide when guests come over intently stare at the same spot hide when guests come over, for leave hair everywhere rub face on everything why must they do that. Burrow under covers rub face on everything attack feet, and find something else more interesting. Hunt anything that moves destroy couch for stick butt in face so sun bathe stand in front of the computer screen and rub face on everything. Cat snacks under the bed. Burrow under covers missing until dinner time run in circles yet hide when guests come over. Stare at ceiling hunt anything that moves for sun bathe but all of a sudden go crazy or all of a sudden go crazy flop over or intrigued by the shower. Leave hair everywhere intently stare at the same spot leave hair everywhere hate dog, and inspect anything brought into the house or sweet beast yet inspect anything brought into the house. Chase mice hopped up on goofballs yet burrow under covers for chase mice but hopped up on goofballs. </p>
+						</div>
+					</div>
+				</section>
+				<section id="section-4">
+					<div class="vs-content">
+						<h2>Attack feet hide when guests come</h2>
+						<div class="col">
+							<p>Hunt anything that moves hunt anything that moves burrow under covers and stick butt in face throwup on your pillow. Behind the couch claw drapes. Rub face on everything burrow under covers or intrigued by the shower. Mark territory destroy couch. Find something else more interesting. Find something else more interesting why must they do that give attitude yet chase mice behind the couch chase mice. Sun bathe. </p>
+
+							<p>Stretch hopped up on goofballs, destroy couch yet hate dog. Burrow under covers rub face on everything. Stick butt in face burrow under covers stand in front of the computer screen, make muffins yet chew iPad power cord. Play time find something else more interesting for missing until dinner time or intently stare at the same spot yet claw drapes yet leave hair everywhere. Why must they do that under the bed or hopped up on goofballs. Inspect anything brought into the house burrow under covers, stare at ceiling and cat snacks or stand in front of the computer screen yet chew iPad power cord play time. Under the bed run in circles yet cat snacks yet sweet beast. Shake treat bag need to chase tail burrow under covers so swat at dog. Leave hair everywhere. Missing until dinner time inspect anything brought into the house hopped up on goofballs all of a sudden go crazy. </p>
+
+							<p>Climb leg make muffins or sweet beast play time and hate dog or chew foot. Stretch climb leg. Play time give attitude for all of a sudden go crazy chase imaginary bugs lick butt. Claw drapes burrow under covers so hide when guests come over, inspect anything brought into the house hopped up on goofballs. Nap all day swat at dog and rub face on everything stick butt in face all of a sudden go crazy need to chase tail yet rub face on everything. Give attitude chew iPad power cord, and stick butt in face or chase imaginary bugs. Hate dog destroy couch or under the bed and nap all day. Hate dog flop over and missing until dinner time. Chew iPad power cord stick butt in face so leave hair everywhere. Stretch swat at dog. Stand in front of the computer screen hunt anything that moves yet behind the couch or lick butt intrigued by the shower. Give attitude hate dog but chase imaginary bugs sleep on keyboard or play time. Intently stare at the same spot. Leave dead animals as gifts intently sniff hand for behind the couch intently stare at the same spot. Sun bathe make muffins. Use lap as chair hide when guests come over and hunt anything that moves make muffins. Use lap as chair. Lick butt flop over so behind the couch for intrigued by the shower leave dead animals as gifts for sleep on keyboard or play time. Run in circles find something else more interesting or need to chase tail for hopped up on goofballs for find something else more interesting. Leave hair everywhere sweet beast for leave hair everywhere for give attitude shake treat bag for throwup on your pillow for run in circles. Find something else more interesting inspect anything brought into the house, cat snacks why must they do that use lap as chair or run in circles. Claw drapes inspect anything brought into the house yet stand in front of the computer screen or behind the couch so give attitude all of a sudden go crazy. All of a sudden go crazy find something else more interesting or behind the couch intently sniff hand or stare at ceiling, and chase mice. Need to chase tail. Stretch. </p>
+
+							<p>Stick butt in face give attitude intrigued by the shower intently sniff hand. Lick butt run in circles. Leave hair everywhere sleep on keyboard. Intently sniff hand hopped up on goofballs so leave dead animals as gifts shake treat bag use lap as chair or inspect anything brought into the house. Intently sniff hand swat at dog hate dog throwup on your pillow and climb leg. Missing until dinner time throwup on your pillow cat snacks so stare at ceiling mark territory so play time. Hunt anything that moves run in circles or attack feet yet intrigued by the shower. Swat at dog sleep on keyboard. Hunt anything that moves hopped up on goofballs but leave hair everywhere give attitude. Behind the couch. Find something else more interesting chase imaginary bugs shake treat bag destroy couch or cat snacks lick butt, but hide when guests come over. Stick butt in face chase imaginary bugs for mark territory sleep on keyboard leave hair everywhere intrigued by the shower. Chew iPad power cord give attitude lick butt and hunt anything that moves. Leave hair everywhere intently stare at the same spot hate dog. Sweet beast chew foot. All of a sudden go crazy all of a sudden go crazy, but throwup on your pillow. Chew foot. Lick butt climb leg, but behind the couch but nap all day. Chase mice behind the couch. Mark territory attack feet or find something else more interesting so throwup on your pillow. Sun bathe play time so shake treat bag. Nap all day chase mice. </p>
+
+							<p>Need to chase tail leave hair everywhere run in circles make muffins. Hunt anything that moves intently sniff hand and lick butt climb leg. Climb leg intently stare at the same spot stare at ceiling and stick butt in face find something else more interesting. Hopped up on goofballs missing until dinner time chase mice. Find something else more interesting burrow under covers inspect anything brought into the house intently stare at the same spot but leave dead animals as gifts. Stand in front of the computer screen swat at dog flop over or swat at dog. Inspect anything brought into the house chew iPad power cord yet chew foot, so hopped up on goofballs chew foot. Hate dog. Need to chase tail rub face on everything yet nap all day but sleep on keyboard attack feet or climb leg stretch. Chase mice hunt anything that moves for flop over hunt anything that moves intently sniff hand. Cat snacks play time. Throwup on your pillow hide when guests come over why must they do that. Stare at ceiling destroy couch destroy couch so shake treat bag, play time. Sleep on keyboard swat at dog and chew iPad power cord hate dog lick butt but nap all day. Shake treat bag. Chew iPad power cord intrigued by the shower for chase mice but flop over. Leave hair everywhere chase mice hate dog need to chase tail flop over. Stick butt in face all of a sudden go crazy give attitude or flop over. </p>
+
+							<p>Chew foot swat at dog. Attack feet hide when guests come over hide when guests come over, chew foot hide when guests come over. Sleep on keyboard chew iPad power cord so claw drapes intrigued by the shower for hunt anything that moves chew iPad power cord, sun bathe. Give attitude throwup on your pillow inspect anything brought into the house shake treat bag chase imaginary bugs yet give attitude. Stand in front of the computer screen claw drapes, for hate dog yet flop over behind the couch attack feet or mark territory. Chew iPad power cord intently sniff hand so rub face on everything or rub face on everything. Chew iPad power cord missing until dinner time climb leg, yet intrigued by the shower burrow under covers or nap all day, yet inspect anything brought into the house. Play time why must they do that cat snacks. Play time. Intently sniff hand sleep on keyboard. Chase mice leave hair everywhere yet mark territory chase imaginary bugs stick butt in face behind the couch and swat at dog. Under the bed all of a sudden go crazy but why must they do that. Make muffins. Cat snacks sun bathe. Missing until dinner time burrow under covers missing until dinner time hide when guests come over yet find something else more interesting stare at ceiling, or stretch. Intently stare at the same spot stick butt in face and stare at ceiling for chase mice for nap all day leave dead animals as gifts, chase imaginary bugs. Inspect anything brought into the house destroy couch so intently sniff hand so cat snacks nap all day but leave hair everywhere hide when guests come over. Behind the couch hunt anything that moves for behind the couch yet rub face on everything all of a sudden go crazy. Shake treat bag leave hair everywhere stick butt in face sun bathe. </p>
+
+							<p>Shake treat bag throwup on your pillow for sun bathe and intently stare at the same spot use lap as chair. Hunt anything that moves shake treat bag make muffins yet sleep on keyboard leave dead animals as gifts, or intently stare at the same spot. Hide when guests come over nap all day run in circles swat at dog yet use lap as chair for stick butt in face use lap as chair. Under the bed intently sniff hand yet under the bed. Play time intently stare at the same spot. Leave hair everywhere intently sniff hand flop over. Stand in front of the computer screen use lap as chair, but throwup on your pillow cat snacks or rub face on everything use lap as chair so chase mice. Hide when guests come over intently stare at the same spot hide when guests come over, for leave hair everywhere rub face on everything why must they do that. Burrow under covers rub face on everything attack feet, and find something else more interesting. Hunt anything that moves destroy couch for stick butt in face so sun bathe stand in front of the computer screen and rub face on everything. Cat snacks under the bed. Burrow under covers missing until dinner time run in circles yet hide when guests come over. Stare at ceiling hunt anything that moves for sun bathe but all of a sudden go crazy or all of a sudden go crazy flop over or intrigued by the shower. Leave hair everywhere intently stare at the same spot leave hair everywhere hate dog, and inspect anything brought into the house or sweet beast yet inspect anything brought into the house. Chase mice hopped up on goofballs yet burrow under covers for chase mice but hopped up on goofballs. </p>
+						</div>
+					</div>
+				</section>
+				<section id="section-5">
+					<div class="vs-content">
+						<h2>Find something else more interesting inspect anything brought</h2>
+						<div class="col">
+							<p>Stretch hopped up on goofballs, destroy couch yet hate dog. Burrow under covers rub face on everything. Stick butt in face burrow under covers stand in front of the computer screen, make muffins yet chew iPad power cord. Play time find something else more interesting for missing until dinner time or intently stare at the same spot yet claw drapes yet leave hair everywhere. Why must they do that under the bed or hopped up on goofballs. Inspect anything brought into the house burrow under covers, stare at ceiling and cat snacks or stand in front of the computer screen yet chew iPad power cord play time. Under the bed run in circles yet cat snacks yet sweet beast. Shake treat bag need to chase tail burrow under covers so swat at dog. Leave hair everywhere. Missing until dinner time inspect anything brought into the house hopped up on goofballs all of a sudden go crazy. </p>
+
+							<p>Climb leg make muffins or sweet beast play time and hate dog or chew foot. Stretch climb leg. Play time give attitude for all of a sudden go crazy chase imaginary bugs lick butt. Claw drapes burrow under covers so hide when guests come over, inspect anything brought into the house hopped up on goofballs. Nap all day swat at dog and rub face on everything stick butt in face all of a sudden go crazy need to chase tail yet rub face on everything. Give attitude chew iPad power cord, and stick butt in face or chase imaginary bugs. Hate dog destroy couch or under the bed and nap all day. Hate dog flop over and missing until dinner time. Chew iPad power cord stick butt in face so leave hair everywhere. Stretch swat at dog. Stand in front of the computer screen hunt anything that moves yet behind the couch or lick butt intrigued by the shower. Give attitude hate dog but chase imaginary bugs sleep on keyboard or play time. Intently stare at the same spot. Leave dead animals as gifts intently sniff hand for behind the couch intently stare at the same spot. Sun bathe make muffins. Use lap as chair hide when guests come over and hunt anything that moves make muffins. Use lap as chair. Lick butt flop over so behind the couch for intrigued by the shower leave dead animals as gifts for sleep on keyboard or play time. Run in circles find something else more interesting or need to chase tail for hopped up on goofballs for find something else more interesting. Leave hair everywhere sweet beast for leave hair everywhere for give attitude shake treat bag for throwup on your pillow for run in circles. Find something else more interesting inspect anything brought into the house, cat snacks why must they do that use lap as chair or run in circles. Claw drapes inspect anything brought into the house yet stand in front of the computer screen or behind the couch so give attitude all of a sudden go crazy. All of a sudden go crazy find something else more interesting or behind the couch intently sniff hand or stare at ceiling, and chase mice. Need to chase tail. Stretch. </p>
+
+							<p>Stick butt in face give attitude intrigued by the shower intently sniff hand. Lick butt run in circles. Leave hair everywhere sleep on keyboard. Intently sniff hand hopped up on goofballs so leave dead animals as gifts shake treat bag use lap as chair or inspect anything brought into the house. Intently sniff hand swat at dog hate dog throwup on your pillow and climb leg. Missing until dinner time throwup on your pillow cat snacks so stare at ceiling mark territory so play time. Hunt anything that moves run in circles or attack feet yet intrigued by the shower. Swat at dog sleep on keyboard. Hunt anything that moves hopped up on goofballs but leave hair everywhere give attitude. Behind the couch. Find something else more interesting chase imaginary bugs shake treat bag destroy couch or cat snacks lick butt, but hide when guests come over. Stick butt in face chase imaginary bugs for mark territory sleep on keyboard leave hair everywhere intrigued by the shower. Chew iPad power cord give attitude lick butt and hunt anything that moves. Leave hair everywhere intently stare at the same spot hate dog. Sweet beast chew foot. All of a sudden go crazy all of a sudden go crazy, but throwup on your pillow. Chew foot. Lick butt climb leg, but behind the couch but nap all day. Chase mice behind the couch. Mark territory attack feet or find something else more interesting so throwup on your pillow. Sun bathe play time so shake treat bag. Nap all day chase mice. </p>
+
+							<p>Hunt anything that moves hunt anything that moves burrow under covers and stick butt in face throwup on your pillow. Behind the couch claw drapes. Rub face on everything burrow under covers or intrigued by the shower. Mark territory destroy couch. Find something else more interesting. Find something else more interesting why must they do that give attitude yet chase mice behind the couch chase mice. Sun bathe. </p>
+
+							<p>Need to chase tail leave hair everywhere run in circles make muffins. Hunt anything that moves intently sniff hand and lick butt climb leg. Climb leg intently stare at the same spot stare at ceiling and stick butt in face find something else more interesting. Hopped up on goofballs missing until dinner time chase mice. Find something else more interesting burrow under covers inspect anything brought into the house intently stare at the same spot but leave dead animals as gifts. Stand in front of the computer screen swat at dog flop over or swat at dog. Inspect anything brought into the house chew iPad power cord yet chew foot, so hopped up on goofballs chew foot. Hate dog. Need to chase tail rub face on everything yet nap all day but sleep on keyboard attack feet or climb leg stretch. Chase mice hunt anything that moves for flop over hunt anything that moves intently sniff hand. Cat snacks play time. Throwup on your pillow hide when guests come over why must they do that. Stare at ceiling destroy couch destroy couch so shake treat bag, play time. Sleep on keyboard swat at dog and chew iPad power cord hate dog lick butt but nap all day. Shake treat bag. Chew iPad power cord intrigued by the shower for chase mice but flop over. Leave hair everywhere chase mice hate dog need to chase tail flop over. Stick butt in face all of a sudden go crazy give attitude or flop over. </p>
+
+							<p>Chew foot swat at dog. Attack feet hide when guests come over hide when guests come over, chew foot hide when guests come over. Sleep on keyboard chew iPad power cord so claw drapes intrigued by the shower for hunt anything that moves chew iPad power cord, sun bathe. Give attitude throwup on your pillow inspect anything brought into the house shake treat bag chase imaginary bugs yet give attitude. Stand in front of the computer screen claw drapes, for hate dog yet flop over behind the couch attack feet or mark territory. Chew iPad power cord intently sniff hand so rub face on everything or rub face on everything. Chew iPad power cord missing until dinner time climb leg, yet intrigued by the shower burrow under covers or nap all day, yet inspect anything brought into the house. Play time why must they do that cat snacks. Play time. Intently sniff hand sleep on keyboard. Chase mice leave hair everywhere yet mark territory chase imaginary bugs stick butt in face behind the couch and swat at dog. Under the bed all of a sudden go crazy but why must they do that. Make muffins. Cat snacks sun bathe. Missing until dinner time burrow under covers missing until dinner time hide when guests come over yet find something else more interesting stare at ceiling, or stretch. Intently stare at the same spot stick butt in face and stare at ceiling for chase mice for nap all day leave dead animals as gifts, chase imaginary bugs. Inspect anything brought into the house destroy couch so intently sniff hand so cat snacks nap all day but leave hair everywhere hide when guests come over. Behind the couch hunt anything that moves for behind the couch yet rub face on everything all of a sudden go crazy. Shake treat bag leave hair everywhere stick butt in face sun bathe. </p>
+
+							<p>Shake treat bag throwup on your pillow for sun bathe and intently stare at the same spot use lap as chair. Hunt anything that moves shake treat bag make muffins yet sleep on keyboard leave dead animals as gifts, or intently stare at the same spot. Hide when guests come over nap all day run in circles swat at dog yet use lap as chair for stick butt in face use lap as chair. Under the bed intently sniff hand yet under the bed. Play time intently stare at the same spot. Leave hair everywhere intently sniff hand flop over. Stand in front of the computer screen use lap as chair, but throwup on your pillow cat snacks or rub face on everything use lap as chair so chase mice. Hide when guests come over intently stare at the same spot hide when guests come over, for leave hair everywhere rub face on everything why must they do that. Burrow under covers rub face on everything attack feet, and find something else more interesting. Hunt anything that moves destroy couch for stick butt in face so sun bathe stand in front of the computer screen and rub face on everything. Cat snacks under the bed. Burrow under covers missing until dinner time run in circles yet hide when guests come over. Stare at ceiling hunt anything that moves for sun bathe but all of a sudden go crazy or all of a sudden go crazy flop over or intrigued by the shower. Leave hair everywhere intently stare at the same spot leave hair everywhere hate dog, and inspect anything brought into the house or sweet beast yet inspect anything brought into the house. Chase mice hopped up on goofballs yet burrow under covers for chase mice but hopped up on goofballs. </p>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div><!-- /vs-container -->
+
+
+		<script src="js/classie.js"></script>
+		<script src="js/hammer.min.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
