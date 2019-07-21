@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>G About</title>
+		<meta name="description" content="A template with animated columns and a content preview." />
+		<meta name="keywords" content="layout, uidesign, template, css, javascript, columns, grid" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://use.typekit.net/bml8yys.css">
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+		<!--script src="//tympanus.net/codrops/adpacks/analytics.js"></script-->
+		<style>
+			article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}body{margin:0;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;margin:0.67em 0;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:bold;}dfn{font-style:italic;}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em;}pre{white-space:pre-wrap;}q{quotes:"\201C" "\201D" "\2018" "\2019";}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-0.5em;}sub{bottom:-0.25em;}img{border:0;}svg:not(:root){overflow:hidden;}figure{margin:0;}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em;}legend{border:0;padding:0;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,select{text-transform:none;}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;}button[disabled],html input[disabled]{cursor:default;}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+:root {
+	font-size: 14px;
+}
+
+html, body {
+	height: 100%;
+	overflow-y: scroll;
+}
+
+body {
+	--color-text: #252528;
+	--color-bg: #afb6bc;
+	--color-link: #252528;
+	--color-link-hover: #252528;
+	--color-menu-text: #252528;
+	--color-bg-move: #afb6bc;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	font-family: fieldwork-hum, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+main {
+	width: 100%;
+    height: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    align-items: center;
+}
+
+.js main {
+	overflow: hidden;
+}
+
+.cursor {
+	display: none;
+}
+
+/* Page Loader */
+.js .loading::before {
+	content: '';
+	position: fixed;
+	z-index: 100000;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--color-bg);
+}
+
+.js .loading::after {
+	content: '';
+	position: fixed;
+	z-index: 100000;
+	top: 50%;
+	left: 50%;
+	width: 60px;
+	height: 60px;
+	margin: -30px 0 0 -30px;
+	pointer-events: none;
+	border-radius: 50%;
+	opacity: 0.4;
+	background: var(--color-link);
+	animation: loaderAnim 0.7s linear infinite alternate forwards;
+}
+
+@keyframes loaderAnim {
+	to {
+		opacity: 1;
+		transform: scale3d(0.5,0.5,1);
+	}
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-link);
+	
+}
+
+a:hover,
+a:focus {
+	color: var(--color-link-hover);
+	outline: 0;
+}
+
+.frame {
+	padding: 1rem;
+	text-align: center;
+	position: relative;
+	z-index: 1000;
+	grid-area: 1 / 1 / 2 / 2;
+	align-self: start;
+}
+
+.frame__title {
+	font-size: 1rem;
+	margin: 0 0 1rem;
+}
+
+.frame__links {
+	display: inline;
+}
+
+.frame__github,
+.frame__links a:not(:last-child),
+.frame__demos a:not(:last-child) {
+	margin-right: 1rem;
+}
+
+.frame__demos {
+	margin: 1rem 0;
+}
+
+.frame__demo--current,
+.frame__demo--current:hover {
+	color: var(--color-text);
+}
+
+.content, 
+.content__move {
+	width: 100%;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 100%;
+	align-items: center;
+	grid-area: 1 / 1 / 2 / 2;
+	justify-self: center;
+	position: relative;
+	will-change: transform;
+}
+
+.content--first {
+	position: fixed;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+
+.content__move {
+	background: var(--color-bg-move);
+}
+
+.columns {
+	grid-area: 1 / 1 / 2 / 2;
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: grid;
+	grid-template-columns: repeat(4,1fr);
+	grid-template-rows: 100%;
+	grid-gap: 1.5rem;
+	padding: 0 8vw;
+}
+
+.column {
+	position: relative;
+	align-self: start;
+	will-change: transform;
+}
+
+.column--bottom {
+	align-self: end;
+}
+
+.column__img {
+	width: 100%;
+	display: block;
+	opacity: 0.4;
+	background-size: cover;
+	background-position: 50% 50%;
+	height: 25vw;
+}
+
+.column__img:nth-child(odd) {
+	height: 30vw;
+}
+
+.column__img:not(:last-child) {
+	margin-bottom: 1.5rem;
+}
+
+.menu {
+
+	grid-area: 1 / 1 / 2 / 2;
+	width: 100vw;
+	height: 100vh;
+	padding: 15vh 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.menu__item {
+	display: flex;
+	font-weight: 800;
+	font-size: 16vw;
+	line-height: 1.1;
+	cursor: pointer;
+	padding-bottom: 1rem;
+	-webkit-text-stroke: 2px var(--color-menu-text);
+	text-stroke: 2px var(--color-menu-text);
+	-webkit-text-fill-color: transparent;
+	text-fill-color: transparent;
+	color: transparent;
+}
+
+.menu__item:hover {
+	-webkit-text-fill-color: var(--color-menu-text);
+	text-fill-color: var(--color-menu-text);
+	color: var(--color-menu-text);
+}
+
+.item {
+	position: relative;
+}
+
+.js .item {
+	grid-area: 1 / 1 / 2 / 2;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.js .item--current {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.item__img {
+	height: 300px;
+	width: 100%;
+	flex: none;
+	background-size: cover;
+	background-position: 50% 25%;
+	opacity: 0.4;
+}
+
+.item__content {
+	padding: 2rem;
+	height: calc(100vh - 300px);
+	overflow: auto;
+}
+
+.item__content-title {
+	font-size: 2.5rem;
+	margin: 0;
+	line-height: 1.2;
+	pointer-events: none;
+}
+
+.menu__item span,
+.item__content-title span {
+	display: inline-block;
+	white-space: pre;
+	pointer-events: none;
+	will-change: transform;
+}
+
+.item__content-subtitle {
+	font-weight: normal;
+	margin: 0;
+	font-size: 1.5rem;
+}
+
+.item__content-text {
+	margin: 10vh 0 4rem 0;
+	position: relative;
+	line-height: 1.5;
+}
+
+.item__content-text::after {
+	content: '';
+	width: 2rem;
+	height: 2px;
+	position: absolute;
+	background: currentColor;
+	top: calc(100% + 3rem);
+}
+
+.item__content-back {
+	cursor: pointer;
+}
+
+@media screen and (min-width: 53em) {
+	.frame {
+		position: fixed;
+		text-align: left;
+		z-index: 10000;
+		top: 0;
+		left: 0;
+		display: grid;
+		align-content: space-between;
+		width: 100%;
+		max-width: none;
+		height: 100vh;
+		padding: 3rem 4rem;
+		pointer-events: none;
+		grid-template-columns: 50% 50%;
+		grid-template-rows: auto auto auto;
+		grid-template-areas: 'title ...'
+							'... ...'
+							'links links';
+	}
+	.frame__title-wrap {
+		grid-area: title;
+		display: flex;
+	}
+	.frame__title {
+		margin: 0;
+		font-weight: normal;
+	}
+	.frame__links {
+		grid-area: links;
+		padding: 0;
+		justify-self: end;
+	}
+	.frame a {
+		pointer-events: auto;
+	}
+	.menu__item {
+		font-size: 13vh;
+	}
+	.item {
+		height: 100%;
+		width: 100%;
+		display: flex;
+	}
+	.item__img {
+		height: 100%;
+		width: 45%;
+		background-position: 50% 50%;
+	}
+	.item__content {
+		padding: 15vh 12vw 0 8vw;
+		height: calc(100% - 12rem);
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		overflow: visible;
+	}
+	.item__content-title {
+		font-size: 5vw;
+	}
+	.item__content-subtitle {
+		font-size: 2vw;
+	}
+	.item__content-text {
+		margin-bottom: 0;
+	}
+}
+
+@media (any-pointer: fine) {
+	.cursor {
+		display: block;
+	}
+	.cursor__inner {
+		z-index: 9999;
+		pointer-events: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		mix-blend-mode: difference;
+		border-radius: 50%;
+	}
+	.cursor__inner--circle {
+		width: 25px;
+		height: 25px;
+		border: 1px solid #fff;
+	}
+}
+
+			/*###*/
+			.item { width: 99vw !important; }
+		</style>
+	</head>
+	<body class="loading">
+		<main style="overflow: scroll;">
+
+			<div class="frame">
+				<div class="frame__title-wrap">
+					<!-- <h1 class="frame__title">Animated Image Columns</h1>
+				</div>
+				<div class="frame__links">
+					<a href="https://tympanus.net/Tutorials/underwater-navigation/">Previous demo</a>
+					<a href="https://tympanus.net/codrops/?p=40486">Article</a>
+					<a href="https://github.com/codrops/AnimatedImageColumns/">Github</a>
+				</div> -->
+			</div>
+			<div class="content content--second">
+				<article class="item">
+					<div class="item__img" style="background-image: url(img/3.jpg)"></div>
+					<div class="item__content">
+						<a class="item__content-back">back</a>
+						<h2 class="item__content-title">Welcome!</h2>
+						<h3 class="item__content-subtitle"> Meet Griselle Q.</h3>
+						<div class="item__content-text">
+							<p>Griselle has encountered life experiences and obstacles that led her to pursue a life abundant in health and wellness. She realized the power of integrated holistic medicine through first hand experience after having faced childhood traumas that affected her quality of life as a child and young adult. Disregarded as a major issue from her family, she believed this was a normal way of living. Dissatisfied, yet enduring over a decade of deep stress and anxiety, she sought therapeutic approaches to alleviate of her physical, mental and emotional pain. Her road to everlasting transformation includes holistic therapies such as chiropractic care, massage therapy, acupuncture, aromatherapy, and biodynamic craniosacral therapy in chronological order. Griselle received her massage therapy and Asian bodywork certification from Pacific College of Oriental Medicine in  2016 and soon began working alongside doctors of holistic medicine in the very same year. Griselle received her Biodynamic Craniosacral Therapy certification through Body Intelligence in  2018. She is a member of the American Massage Therapy Association and The Biodynamic Craniosacral Therapy Association of North America. With an appreciation of eastern and western healing modalities, Griselle combines techniques from both perspectives to deliver a customized massage based on her client's specific needs, preferences, and wellness goals. Griselle aims to provide an enjoyable, wholesome and nourishing experience. During her free time, Griselle enjoys cooking, swimming, practicing Seven Star Praying Mantis Martial Arts, and gaining knowledge in her field as a holistic and restorative care practitioner. Griselle currently runs her practice, in Lakeview, and works alongside Dr. Torres as his lead massage therapist at Seven Star Wellness. </p>
+						</div>
+					</div>
+				</article>
+				<article class="item">
+					<div class="item__img" style="background-image: url(img/15.jpg)"></div>
+					<div class="item__content">
+						<a class="item__content-back">back</a>
+						<h2 class="item__content-title">Welcome!</h2>
+						<h3 class="item__content-subtitle">Meet Dr. Torres</h3>
+						<div class="item__content-text">
+							<p>Yamel Torres is the founder and Sifu of the Chinese Martial Arts and Seven Star Wellness Center which opened its doors to the Chicago community in 1998.  Prior to opening his school, Yamel was an Electrical Engineer and Software developer professional earning a Bachelor of Science in Electrical Engineering from the University of Illinois at Chicago and a Master of Science in Computer Science from DePaul University. He later transitioned to a career in the healing arts and earned a Master of Science in Oriental Medicine from the Pacific College of Oriental Medicine, where he also served as a faculty member. Yamel deepened his knowledge and skills by earning a Doctorate of Acupuncture and Chinese Medicine in August of 2017. Dr. Torres runs his private practice, in Lakeview, providing Acupuncture and herbal medicine for the past 7 years. Dr. Torres also works with Dr. Gilberto Munoz at Chicago Medical Group providing consultation on Acupuncture. Additionally, Dr. Torres has studied Traditional Martial Arts since the age of 12 and has been teaching for over 22 years. When he is not seeing patients, Dr. Torres teaches at his school Traditional Martial Arts.
+
+</p>
+						</div>
+					</div>
+				</article>
+				<article class="item">
+					<div class="item__img" style="background-image: url(img/8.jpg)"></div>
+					<div class="item__content">
+						<a class="item__content-back">back</a>
+						<h2 class="item__content-title">Glamour</h2>
+						<h3 class="item__content-subtitle">Adventures in Moscow</h3>
+						<div class="item__content-text">
+							<p>The impressions received through the channels of sound outweighed all others in their influence over the life of the blind boy; his ideas shaped themselves according to sounds, his sense of hearing became the centre of his mental activity.</p>
+							<p>The enchanting melodies of the songs he heard conveyed to him a true sense of the words, coloring them with sadness or joy according to the lights and shades of the melody. </p>
+							<p>He quickly learned all his mother taught him on the piano, and yet he still loved Joachim’s pipe.</p>
+						</div>
+					</div>
+				</article>
+				<article class="item">
+					<div class="item__img" style="background-image: url(img/4.jpg)"></div>
+					<div class="item__content">
+						<a class="item__content-back">back</a>
+						<h2 class="item__content-title">Vogue Paris</h2>
+						<h3 class="item__content-subtitle">Gucci festival feature</h3>
+						<div class="item__content-text">
+							<p>Thus the boy’s day was filled; he could not complain of the lack of new impressions. </p>
+							<p>He seemed to be living as full a life as any child could possibly live; in fact he really seemed unconscious of his blindness.</p>
+							<p>Nevertheless, a certain premature sadness was still perceptible in his character, which Maxim ascribed to the fact that he had never mingled with other children, and endeavored to atone for this omission.</p>
+						</div>
+					</div>
+				</article>
+			</div>
+			<div class="content content--first">
+				<div class="content__move">
+					<div class="columns">
+						<div class="column">
+							<div class="column__img" style="background-image:url(img/2.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/6.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/13.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/14.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/5.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/6.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/7.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/8.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/9.jpg)"></div>
+						</div>
+						<div class="column column--bottom">
+							<div class="column__img" style="background-image:url(img/3.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/11.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/1.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/15.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/14.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/13.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/12.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/3.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/15.jpg)"></div>
+						</div>
+						<div class="column">
+							<div class="column__img" style="background-image:url(img/7.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/4.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/9.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/11.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/5.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/3.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/2.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/1.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/5.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/14.jpg)"></div>
+						</div>
+						<div class="column column--bottom">
+							<div class="column__img" style="background-image:url(img/1.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/2.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/3.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/7.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/4.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/6.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/5.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/8.jpg)"></div>
+							<div class="column__img" style="background-image:url(img/10.jpg)"></div>
+						</div>
+					</div><!--/columns-->
+					<nav class="menu">
+						<a class="menu__item">Meet Griselle</a>
+						<a class="menu__item">Meet Dr. Torres</a>
+						<a class="menu__item">Glamour</a>
+						<a class="menu__item">Vogue Paris</a>
+					</nav>
+						<div class="grid" style="display:grid;grid-template-areas: 
+						'one  one  one' 
+						'one  one  one'
+						'two  two  two';
+						grid-template-columns: repeat(auto,minmax(100%,1fr));
+						height: 100vh;
+						">
+						<div class="one" style="grid-area: one;background-color: red;">
+							<!---->
+							<div class="makeme" style="display: flex;justify-content: center;align-content: center;"><h1 style="position: absolute;z-index: 9999;color: white;">kissing in a tree</h1></div>
+							<!--/-->
+							
+						</div>
+						<div class="two" style="grid-area: two;background-color: blue;">
+							
+						</div>
+							
+						</div>
+				</div><!--/content--move-->
+			</div><!--/content-->
+		</main>
+		<div class="cursor">
+			<div class="cursor__inner cursor__inner--circle"></div>
+		</div>
+		<script src="js/imagesloaded.pkgd.min.js"></script>
+		<script src="js/charming.min.js"></script>
+		<script src="js/bezier-easing.min.js"></script>
+		<script src="js/TweenMax.min.js"></script>
+		<script src="js/demo.js"></script>
+	</body>
+</html>
