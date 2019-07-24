@@ -269,9 +269,10 @@ a:focus {
 }
 
 .item__content {
-	padding: 2rem;
-	height: calc(100vh - 300px);
-	overflow: auto;
+	    padding: 2rem;
+    /* height: calc(100vh - 300px); */
+    overflow: auto;
+    height: 100vh;
 }
 
 .item__content-title {
@@ -297,8 +298,10 @@ a:focus {
 
 .item__content-text {
 	margin: 10vh 0 4rem 0;
-	position: relative;
-	line-height: 1.5;
+    position: relative;
+    line-height: 1.5;
+    overflow-y: scroll;
+    height: 75vh;
 }
 
 .item__content-text::after {
@@ -2014,19 +2017,19 @@ html.nav-open, html.nav-open body {
   var block,i,j,len,len1,ref,ref1,responsiveMenu,slideToggler,trigger,
   indexOf = [].indexOf;
 
-  (function () {
-    var footer;
-    footer = '<p>do it</p>';
-    return document.body.insertAdjacentHTML('beforeend', footer);
-  })();
+  // (function () {
+  //   var footer;
+  //   footer = '<p>do it</p>';
+  //   return document.body.insertAdjacentHTML('beforeend', footer);
+  // })();
 
-  (function () {
-    var logo, logo_css;
-    logo = '';
-    logo_css = '.mM{display:block;border-radius:50%;box-shadow:0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);position:fixed;bottom:1em;right:1em;-webkit-transform-origin:50% 50%;transform-origin:50% 50%;-webkit-transition:all 240ms ease-in-out;transition:all 240ms ease-in-out;z-index:9999;opacity:0.75}.mM svg{display:block}.mM:hover{opacity:1;-webkit-transform:scale(1.125);transform:scale(1.125)}';
-    document.head.insertAdjacentHTML('beforeend', '<style>' + logo_css + '</style>');
-    document.body.insertAdjacentHTML('beforeend', 'null');
-  })();
+  // (function () {
+  //   var logo, logo_css;
+  //   logo = '';
+  //   logo_css = '.mM{display:block;border-radius:50%;box-shadow:0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);position:fixed;bottom:1em;right:1em;-webkit-transform-origin:50% 50%;transform-origin:50% 50%;-webkit-transition:all 240ms ease-in-out;transition:all 240ms ease-in-out;z-index:9999;opacity:0.75}.mM svg{display:block}.mM:hover{opacity:1;-webkit-transform:scale(1.125);transform:scale(1.125)}';
+  //   document.head.insertAdjacentHTML('beforeend', '<style>' + logo_css + '</style>');
+  //   document.body.insertAdjacentHTML('beforeend', 'null');
+  // })();
 
   slideToggler = class slideToggler {
     constructor(el1) {
